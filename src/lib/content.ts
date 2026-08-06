@@ -84,6 +84,21 @@ export function getGalleryPhotos(): GalleryPhoto[] {
   return JSON.parse(raw).items;
 }
 
+export type ThuyilumIllamSite = {
+  id: string;
+  name: string;
+  before: string;
+  after: string;
+};
+
+export function getThuyilumIllamSites(): ThuyilumIllamSite[] {
+  const raw = fs.readFileSync(
+    path.join(CONTENT_DIR, "thuyilum-illam.json"),
+    "utf8"
+  );
+  return JSON.parse(raw).items;
+}
+
 export type PageContent = {
   slug: string;
   data: Record<string, string>;
