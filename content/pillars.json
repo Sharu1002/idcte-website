@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "advocacy",
+      "icon": "megaphone",
+      "title": "Advocacy",
+      "summary": "Direct, consistent engagement with the international community to mobilize support for the Eelam Tamil cause.",
+      "body": "IDCTE maintains consistent and meaningful engagement with members of the international community, including Members of Parliament (MPs), Members of the European Parliament (MEPs), the United Nations, the European Union, and foreign service officials from countries across the world. Through these engagements we aim to mobilize support and solidarity for the Eelam Tamils' cause, urging global leaders to take a stand against the injustice and genocide committed against Eelam Tamils. We have maintained continued engagement with government officials and politicians from the international community, including the United States, Germany, the UN, and countries across Europe."
+    },
+    {
+      "id": "knowledge-mobilization",
+      "icon": "graduation-cap",
+      "title": "Knowledge Mobilization",
+      "summary": "Equipping a new generation of Eelam Tamil youth with the knowledge and skills to advocate for change.",
+      "body": "At IDCTE we recognize the power of knowledge mobilization as a means of empowering youth. By equipping young people with knowledge, we enable them to become informed advocates, capable of raising awareness, challenging injustice, and effecting meaningful change. We use a range of tools for knowledge mobilization, including workshops, training programs, and capacity-building initiatives that give young people the skills and in-depth understanding they need of the human rights situation in Tamileelam. We also use social media platforms, including Twitter, Instagram, and Facebook, to raise awareness and launch campaigns about the Tamil genocide and ongoing human rights violations."
+    }
+  ]
+}

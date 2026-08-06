@@ -2,25 +2,118 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b1220;
+
+  /* Brand palette sampled directly from the IDCTE logo (cyan-to-blue gradient) */
+  --color-brand-50: #eafcff;
+  --color-brand-100: #cdf6ff;
+  --color-brand-200: #9aecff;
+  --color-brand-300: #5fdbfc;
+  --color-brand-400: #22c7f5;
+  --color-brand-500: #0b93f9;
+  --color-brand-600: #0a76bf;
+  --color-brand-700: #085a93;
+  --color-brand-800: #063e68;
+  --color-brand-900: #042a47;
+  --color-ink: #0b0b0c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-anton);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+  --color-ink: var(--color-ink);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), Arial Narrow, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.photo-mono {
+  filter: none;
+}
+
+.prose-idcte p {
+  margin-bottom: 1.1em;
+  line-height: 1.75;
+  color: var(--color-brand-900, #042a47);
+  opacity: 0.85;
+}
+
+.prose-idcte p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-idcte h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-brand-900);
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+}
+
+.prose-idcte h2:first-child {
+  margin-top: 0;
+}
+
+.prose-idcte h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-brand-900);
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.prose-idcte ul,
+.prose-idcte ol {
+  margin: 0 0 1.1em 1.4em;
+  line-height: 1.75;
+  color: var(--color-brand-900);
+  opacity: 0.85;
+}
+
+.prose-idcte ul {
+  list-style: disc;
+}
+
+.prose-idcte ol {
+  list-style: decimal;
+}
+
+.prose-idcte li {
+  margin-bottom: 0.4em;
+}
+
+.prose-idcte a {
+  color: var(--color-brand-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-idcte strong {
+  font-weight: 600;
+  color: var(--color-brand-900);
+}
+
+.prose-idcte em {
+  color: var(--color-brand-700);
 }

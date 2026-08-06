@@ -1,0 +1,24 @@
+{
+  "orgName": "International Diplomatic Council of Tamil Eelam",
+  "shortName": "IDCTE",
+  "tagline": "Advocating for the rights, self-determination and justice of Eelam Tamils",
+  "email": "info@idcte.org",
+  "address": "Østerbrogade 226, st. 1., 2100 København Ø, Denmark",
+  "cvr": "CVR - 42651664",
+  "founded": "Registered in Copenhagen, Denmark since August 2021",
+  "social": {
+    "twitter": "https://twitter.com/idcte_org",
+    "instagram": "https://instagram.com/idcte_org",
+    "facebook": "https://facebook.com/idcte.org"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Our Work", "href": "/our-work" },
+    { "label": "Learn More", "href": "/learn-more" },
+    { "label": "News & Press", "href": "/news" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Get Involved", "href": "/get-involved" },
+    { "label": "Contact", "href": "/contact" }
+  ]
+}

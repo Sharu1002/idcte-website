@@ -1,0 +1,80 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import MarkdownBody from "@/components/MarkdownBody";
+import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
+
+export function generateStaticParams() {
+  return getAllBlogPosts().map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
+  return { title: post?.title ?? "Blog" };
+}
+
+function formatDate(date: string) {
+  return new Date(date + "T00:00:00").toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
+  if (!post) notFound();
+
+  return (
+    <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <Link href="/blog" className="text-sm font-semibold text-brand-600 hover:underline">
+        &larr; Back to Blog
+      </Link>
+
+      {post.tags.length > 0 && (
+        <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide text-brand-600">
+          {post.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+      )}
+
+      <h1 className="mt-3 text-3xl font-semibold text-brand-900 sm:text-4xl">
+        {post.title}
+      </h1>
+
+      <div className="mt-4 flex items-center gap-3 text-sm text-slate-500">
+        <span>{post.author}</span>
+        <span aria-hidden>&middot;</span>
+        <span>{formatDate(post.date)}</span>
+      </div>
+
+      {post.image && (
+        <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden bg-slate-100">
+          <Image
+            src={post.image}
+            alt=""
+            fill
+            sizes="(min-width: 640px) 768px, 100vw"
+            className="photo-mono object-cover"
+          />
+        </div>
+      )}
+
+      <div className="mt-8">
+        <MarkdownBody content={post.content} />
+      </div>
+    </article>
+  );
+}
