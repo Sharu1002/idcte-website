@@ -22,6 +22,7 @@ export default function HomePage() {
         image={page.data.heroImage}
       />
 
+      <div className="relative z-10 bg-white">
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Who We Are" title="A Voice for the Eelam Tamil Nation" />
@@ -112,6 +113,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

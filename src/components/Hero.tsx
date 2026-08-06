@@ -15,7 +15,7 @@ export default function Hero({
   imagePosition?: string;
 }) {
   return (
-    <section className="relative h-[88vh] min-h-[560px] w-full sm:h-[92vh]">
+    <section className="sticky top-0 h-[88vh] min-h-[560px] w-full sm:h-[92vh]">
       <Image
         src={image}
         alt=""
