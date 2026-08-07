@@ -4,6 +4,8 @@ import SectionHeading from "@/components/SectionHeading";
 import MarkdownBody from "@/components/MarkdownBody";
 import Button from "@/components/Button";
 import { getPage, getPillars, getAchievements } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
+import { t } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Our Work",
@@ -11,10 +13,11 @@ export const metadata: Metadata = {
     "IDCTE's work rests on two pillars: advocacy and knowledge mobilization.",
 };
 
-export default function OurWorkPage() {
-  const page = getPage("our-work");
-  const pillars = getPillars();
-  const achievements = getAchievements();
+export default async function OurWorkPage() {
+  const locale = await getLocale();
+  const page = getPage("our-work", locale);
+  const pillars = getPillars(locale);
+  const achievements = getAchievements(locale);
 
   return (
     <>
@@ -49,7 +52,7 @@ export default function OurWorkPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Impact" title={page.data.achievementsTitle} align="center" />
+        <SectionHeading eyebrow={t(locale, "impact")} title={page.data.achievementsTitle} align="center" />
         <div className="mt-12 grid gap-px bg-brand-900/15 sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((item) => (
             <div key={item.title} className="bg-white p-7">
@@ -67,11 +70,11 @@ export default function OurWorkPage() {
       <section className="bg-brand-900 py-16">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-            Want to be part of this work?
+            {t(locale, "want_part_of_work")}
           </h2>
           <div className="mt-8">
             <Button href="/get-involved" variant="primary">
-              Get Involved
+              {t(locale, "get_involved")}
             </Button>
           </div>
         </div>

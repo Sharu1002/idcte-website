@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
+import { t, type Locale } from "@/lib/i18n";
 
 export default function Hero({
   eyebrow,
@@ -7,12 +8,14 @@ export default function Hero({
   subtitle,
   image,
   imagePosition = "50% 50%",
+  locale = "en",
 }: {
   eyebrow?: string;
   title: string;
   subtitle: string;
   image: string;
   imagePosition?: string;
+  locale?: Locale;
 }) {
   return (
     <section className="sticky top-0 h-[88vh] min-h-[560px] w-full sm:h-[92vh]">
@@ -44,10 +47,10 @@ export default function Hero({
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/donate" variant="primary">
-              Donate
+              {t(locale, "donate")}
             </Button>
             <Button href="/learn-more" variant="secondary">
-              Learn More
+              {t(locale, "learn_more")}
             </Button>
           </div>
         </div>

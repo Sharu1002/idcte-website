@@ -3,15 +3,18 @@
 import { useState } from "react";
 import Image from "next/image";
 import { MoveHorizontal } from "lucide-react";
+import { t, type Locale } from "@/lib/i18n";
 
 export default function BeforeAfterSlider({
   before,
   after,
   name,
+  locale = "en",
 }: {
   before: string;
   after: string;
   name: string;
+  locale?: Locale;
 }) {
   const [position, setPosition] = useState(50);
 
@@ -40,10 +43,10 @@ export default function BeforeAfterSlider({
       </div>
 
       <div className="pointer-events-none absolute left-3 top-3 bg-brand-900 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
-        Before
+        {t(locale, "before_label")}
       </div>
       <div className="pointer-events-none absolute right-3 top-3 bg-brand-900 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
-        Now
+        {t(locale, "now_label")}
       </div>
 
       <div

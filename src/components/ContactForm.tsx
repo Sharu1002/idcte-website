@@ -1,8 +1,15 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { t, type Locale } from "@/lib/i18n";
 
-export default function ContactForm({ email }: { email: string }) {
+export default function ContactForm({
+  email,
+  locale = "en",
+}: {
+  email: string;
+  locale?: Locale;
+}) {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [sent, setSent] = useState(false);
 
@@ -25,7 +32,7 @@ export default function ContactForm({ email }: { email: string }) {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-brand-900">
-            Name
+            {t(locale, "form_name")}
           </label>
           <input
             id="name"
@@ -37,7 +44,7 @@ export default function ContactForm({ email }: { email: string }) {
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-brand-900">
-            Email
+            {t(locale, "email_label")}
           </label>
           <input
             id="email"
@@ -52,7 +59,7 @@ export default function ContactForm({ email }: { email: string }) {
 
       <div>
         <label htmlFor="subject" className="block text-sm font-medium text-brand-900">
-          Subject
+          {t(locale, "form_subject")}
         </label>
         <input
           id="subject"
@@ -64,7 +71,7 @@ export default function ContactForm({ email }: { email: string }) {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-brand-900">
-          Message
+          {t(locale, "form_message")}
         </label>
         <textarea
           id="message"
@@ -80,7 +87,7 @@ export default function ContactForm({ email }: { email: string }) {
         type="submit"
         className="inline-flex items-center justify-center rounded-sm bg-brand-500 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-600"
       >
-        Send Message
+        {t(locale, "form_send")}
       </button>
 
       {sent && (

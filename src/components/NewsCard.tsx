@@ -1,16 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { NewsItem } from "@/lib/content";
+import { t, type Locale } from "@/lib/i18n";
 
-function formatDate(date: string) {
-  return new Date(date + "T00:00:00").toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+function formatDate(date: string, locale: Locale) {
+  return new Date(date + "T00:00:00").toLocaleDateString(
+    locale === "ta" ? "ta" : "en-GB",
+    { day: "numeric", month: "long", year: "numeric" }
+  );
 }
 
-export default function NewsCard({ item }: { item: NewsItem }) {
+export default function NewsCard({
+  item,
+  locale = "en",
+}: {
+  item: NewsItem;
+  locale?: Locale;
+}) {
   return (
     <Link
       href={`/news/${item.slug}`}
@@ -29,7 +35,7 @@ export default function NewsCard({ item }: { item: NewsItem }) {
       )}
       <div className="flex flex-1 flex-col p-7">
         <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">
-          {formatDate(item.date)}
+          {formatDate(item.date, locale)}
         </p>
         <h3 className="mt-3 text-lg font-semibold text-brand-900 group-hover:text-brand-600">
           {item.title}
@@ -38,7 +44,7 @@ export default function NewsCard({ item }: { item: NewsItem }) {
           {item.summary}
         </p>
         <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-brand-600">
-          Read statement
+          {t(locale, "read_statement")}
           <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 transition-transform group-hover:translate-x-1">
             <path
               fillRule="evenodd"

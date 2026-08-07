@@ -5,9 +5,17 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import type { SiteConfig } from "@/lib/content";
+import { t, type Locale } from "@/lib/i18n";
 import Button from "./Button";
+import LanguageToggle from "./LanguageToggle";
 
-export default function Header({ site }: { site: SiteConfig }) {
+export default function Header({
+  site,
+  locale,
+}: {
+  site: SiteConfig;
+  locale: Locale;
+}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -45,9 +53,10 @@ export default function Header({ site }: { site: SiteConfig }) {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <LanguageToggle locale={locale} />
           <Button href="/donate" variant="primary">
-            Donate
+            {t(locale, "donate")}
           </Button>
         </div>
 
@@ -84,14 +93,15 @@ export default function Header({ site }: { site: SiteConfig }) {
               </Link>
             ))}
           </nav>
-          <div className="mt-4">
+          <div className="mt-4 flex items-center gap-3">
+            <LanguageToggle locale={locale} className="flex-1" />
             <Button
               href="/donate"
               variant="primary"
-              className="w-full"
+              className="flex-1"
               onClick={() => setOpen(false)}
             >
-              Donate
+              {t(locale, "donate")}
             </Button>
           </div>
         </div>

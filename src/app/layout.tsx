@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Anton } from "next/font/google";
+import { Inter, Anton, Noto_Sans_Tamil } from "next/font/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
 import { getSiteConfig } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,6 +16,12 @@ const anton = Anton({
   weight: "400",
 });
 
+const notoSansTamil = Noto_Sans_Tamil({
+  variable: "--font-tamil",
+  subsets: ["tamil"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "IDCTE — International Diplomatic Council of Tamil Eelam",
@@ -24,19 +31,22 @@ export const metadata: Metadata = {
     "IDCTE advocates for the rights, self-determination, and justice of Eelam Tamils through international advocacy and knowledge mobilization.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const site = getSiteConfig();
+  const locale = await getLocale();
+  const site = getSiteConfig(locale);
   return (
     <html
-      lang="en"
-      className={`${inter.variable} ${anton.variable} h-full antialiased`}
+      lang={locale}
+      className={`${inter.variable} ${anton.variable} ${notoSansTamil.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SiteChrome site={site}>{children}</SiteChrome>
+        <SiteChrome site={site} locale={locale}>
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

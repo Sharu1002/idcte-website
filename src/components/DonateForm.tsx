@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { t, type Locale } from "@/lib/i18n";
 
 const PRESETS = [10, 25, 50, 100, 250];
 
-export default function DonateForm() {
+export default function DonateForm({ locale = "en" }: { locale?: Locale }) {
   const searchParams = useSearchParams();
   const status = searchParams.get("status");
 
@@ -53,14 +54,12 @@ export default function DonateForm() {
     <div>
       {status === "success" && (
         <div className="mb-8 border-l-2 border-brand-500 bg-brand-50/60 p-5 text-sm text-brand-900">
-          Thank you for your support — your donation was received. IDCTE is
-          deeply grateful for your solidarity.
+          {t(locale, "donate_success")}
         </div>
       )}
       {status === "canceled" && (
         <div className="mb-8 border-l-2 border-slate-300 bg-slate-50 p-5 text-sm text-slate-700">
-          Your donation was canceled. No charge was made — feel free to try
-          again whenever you&apos;re ready.
+          {t(locale, "donate_canceled")}
         </div>
       )}
 
@@ -77,7 +76,7 @@ export default function DonateForm() {
                   : "text-brand-900 hover:bg-brand-50"
               }`}
             >
-              {f === "monthly" ? "Monthly" : "One-Time"}
+              {f === "monthly" ? t(locale, "donate_monthly") : t(locale, "donate_once")}
             </button>
           ))}
         </div>
@@ -101,7 +100,7 @@ export default function DonateForm() {
 
         <div className="mt-4">
           <label htmlFor="custom-amount" className="block text-sm font-medium text-brand-900">
-            Or enter a custom amount (EUR)
+            {t(locale, "donate_custom_amount")}
           </label>
           <div className="relative mt-1.5 max-w-[200px]">
             <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500">
@@ -128,15 +127,14 @@ export default function DonateForm() {
           className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 px-7 py-4 text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         >
           {loading
-            ? "Redirecting to secure checkout…"
-            : `Donate €${validAmount ? selectedAmount : "0"} ${
-                frequency === "monthly" ? "Monthly" : "Once"
+            ? t(locale, "donate_redirecting")
+            : `${t(locale, "donate")} €${validAmount ? selectedAmount : "0"} ${
+                frequency === "monthly" ? t(locale, "donate_monthly") : t(locale, "donate_once")
               }`}
         </button>
 
         <p className="mt-4 text-xs text-slate-500">
-          Payments are processed securely by Stripe. IDCTE never sees or
-          stores your card details.
+          {t(locale, "donate_secure_note")}
         </p>
       </form>
     </div>

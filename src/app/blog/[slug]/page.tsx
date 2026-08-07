@@ -4,6 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import MarkdownBody from "@/components/MarkdownBody";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
+import { t, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
@@ -15,16 +17,16 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const locale = await getLocale();
+  const post = getBlogPostBySlug(slug, locale);
   return { title: post?.title ?? "Blog" };
 }
 
-function formatDate(date: string) {
-  return new Date(date + "T00:00:00").toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+function formatDate(date: string, locale: Locale) {
+  return new Date(date + "T00:00:00").toLocaleDateString(
+    locale === "ta" ? "ta" : "en-GB",
+    { day: "numeric", month: "long", year: "numeric" }
+  );
 }
 
 export default async function BlogPostPage({
@@ -33,13 +35,14 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const locale = await getLocale();
+  const post = getBlogPostBySlug(slug, locale);
   if (!post) notFound();
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <Link href="/blog" className="text-sm font-semibold text-brand-600 hover:underline">
-        &larr; Back to Blog
+        &larr; {t(locale, "back_to_blog")}
       </Link>
 
       {post.tags.length > 0 && (
@@ -57,7 +60,7 @@ export default async function BlogPostPage({
       <div className="mt-4 flex items-center gap-3 text-sm text-slate-500">
         <span>{post.author}</span>
         <span aria-hidden>&middot;</span>
-        <span>{formatDate(post.date)}</span>
+        <span>{formatDate(post.date, locale)}</span>
       </div>
 
       {post.image && (

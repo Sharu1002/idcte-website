@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Blog8 } from "@/components/blocks/blog8";
 import { getAllBlogPosts } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
+import { t } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -9,25 +11,36 @@ export const metadata: Metadata = {
     "Analysis and commentary from IDCTE on structural genocide, self-determination, and international advocacy for Eelam Tamils.",
 };
 
-export default function BlogPage() {
-  const posts = getAllBlogPosts();
+const copy = {
+  en: {
+    title: "Blog",
+    subtitle: "Analysis and commentary from the IDCTE team — beyond our official statements.",
+  },
+  ta: {
+    title: "வலைப்பதிவு",
+    subtitle: "எங்கள் உத்தியோகபூர்வ அறிக்கைகளுக்கு அப்பால் — IDCTE குழுவிடமிருந்து பகுப்பாய்வும் கருத்தும்.",
+  },
+} as const;
+
+export default async function BlogPage() {
+  const locale = await getLocale();
+  const posts = getAllBlogPosts(locale);
+  const c = copy[locale];
 
   return (
     <>
-      <PageHero
-        title="Blog"
-        subtitle="Analysis and commentary from the IDCTE team — beyond our official statements."
-      />
+      <PageHero title={c.title} subtitle={c.subtitle} />
       <Blog8
-        eyebrow="From the Team"
-        heading="Latest Posts"
+        eyebrow={t(locale, "from_the_team")}
+        heading={t(locale, "latest_posts")}
+        locale={locale}
         posts={posts.map((post) => ({
           id: post.slug,
           title: post.title,
           summary: post.summary,
           author: post.author,
           published: new Date(post.date + "T00:00:00").toLocaleDateString(
-            "en-GB",
+            locale === "ta" ? "ta" : "en-GB",
             { day: "numeric", month: "long", year: "numeric" }
           ),
           url: `/blog/${post.slug}`,

@@ -9,6 +9,8 @@ import {
   getLearnMoreBySlug,
   getThuyilumIllamSites,
 } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
+import { t } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return getAllLearnMore().map((topic) => ({ slug: topic.slug }));
@@ -20,7 +22,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const topic = getLearnMoreBySlug(slug);
+  const locale = await getLocale();
+  const topic = getLearnMoreBySlug(slug, locale);
   return { title: topic?.title ?? "Learn More" };
 }
 
@@ -30,12 +33,13 @@ export default async function LearnMoreDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const topic = getLearnMoreBySlug(slug);
+  const locale = await getLocale();
+  const topic = getLearnMoreBySlug(slug, locale);
   if (!topic) notFound();
 
-  const all = getAllLearnMore();
+  const all = getAllLearnMore(locale);
   const others = all.filter((t) => t.slug !== topic.slug).slice(0, 2);
-  const sites = topic.slug === "thuyilum-illam" ? getThuyilumIllamSites() : [];
+  const sites = topic.slug === "thuyilum-illam" ? getThuyilumIllamSites(locale) : [];
 
   return (
     <article className="py-16">
@@ -44,7 +48,7 @@ export default async function LearnMoreDetailPage({
           href="/learn-more"
           className="text-sm font-semibold text-brand-600 hover:underline"
         >
-          &larr; Back to Learn More
+          &larr; {t(locale, "back_to_learn_more")}
         </Link>
 
         <h1 className="mt-6 text-3xl font-semibold text-brand-900 sm:text-4xl">
@@ -58,18 +62,18 @@ export default async function LearnMoreDetailPage({
 
       {sites.length > 0 && (
         <div className="mx-auto mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ThuyilumIllamGallery sites={sites} />
+          <ThuyilumIllamGallery sites={sites} locale={locale} />
         </div>
       )}
 
       {others.length > 0 && (
         <div className="mx-auto mt-16 max-w-3xl border-t border-slate-200 px-4 pt-10 sm:px-6 lg:px-8">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-brand-600">
-            Continue Learning
+            {t(locale, "continue_learning")}
           </h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            {others.map((t) => (
-              <LearnMoreCard key={t.slug} topic={t} />
+            {others.map((topicItem) => (
+              <LearnMoreCard key={topicItem.slug} topic={topicItem} />
             ))}
           </div>
         </div>

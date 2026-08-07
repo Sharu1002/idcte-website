@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
 import SectionHeading from "@/components/SectionHeading";
+import { t, type Locale } from "@/lib/i18n";
 
 export interface BlogPost {
   id: string;
@@ -21,9 +22,10 @@ interface Blog8Props {
   heading?: string;
   description?: string;
   posts: BlogPost[];
+  locale?: Locale;
 }
 
-const Blog8 = ({ eyebrow, heading, description, posts }: Blog8Props) => {
+const Blog8 = ({ eyebrow, heading, description, posts, locale = "en" }: Blog8Props) => {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 px-4 sm:px-6 lg:px-8">
@@ -63,7 +65,7 @@ const Blog8 = ({ eyebrow, heading, description, posts }: Blog8Props) => {
                     href={post.url}
                     className="group mt-6 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-brand-600 md:mt-7"
                   >
-                    Read more
+                    {t(locale, "read_more")}
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

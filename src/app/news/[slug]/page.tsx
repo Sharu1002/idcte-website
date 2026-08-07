@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import MarkdownBody from "@/components/MarkdownBody";
 import Button from "@/components/Button";
 import { getAllNews, getNewsBySlug } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
+import { t, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return getAllNews().map((item) => ({ slug: item.slug }));
@@ -16,16 +18,16 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const item = getNewsBySlug(slug);
+  const locale = await getLocale();
+  const item = getNewsBySlug(slug, locale);
   return { title: item?.title ?? "Statement" };
 }
 
-function formatDate(date: string) {
-  return new Date(date + "T00:00:00").toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+function formatDate(date: string, locale: Locale) {
+  return new Date(date + "T00:00:00").toLocaleDateString(
+    locale === "ta" ? "ta" : "en-GB",
+    { day: "numeric", month: "long", year: "numeric" }
+  );
 }
 
 export default async function NewsDetailPage({
@@ -34,17 +36,18 @@ export default async function NewsDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = getNewsBySlug(slug);
+  const locale = await getLocale();
+  const item = getNewsBySlug(slug, locale);
   if (!item) notFound();
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <Link href="/news" className="text-sm font-semibold text-brand-600 hover:underline">
-        &larr; Back to News &amp; Press
+        &larr; {t(locale, "back_to_news")}
       </Link>
 
       <p className="mt-6 text-sm font-semibold uppercase tracking-wider text-brand-600">
-        {formatDate(item.date)}
+        {formatDate(item.date, locale)}
       </p>
       <h1 className="mt-3 text-3xl font-semibold text-brand-900 sm:text-4xl">
         {item.title}
@@ -69,7 +72,7 @@ export default async function NewsDetailPage({
       {item.pdf && (
         <div className="mt-10">
           <Button href={item.pdf} variant="outline" target="_blank">
-            Download official statement (PDF)
+            {t(locale, "download_statement_pdf")}
           </Button>
         </div>
       )}

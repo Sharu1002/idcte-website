@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { SiteConfig } from "@/lib/content";
+import { t, type Locale } from "@/lib/i18n";
 
 function SocialIcon({ kind }: { kind: "twitter" | "instagram" | "facebook" }) {
   const paths: Record<string, React.ReactNode> = {
@@ -21,7 +22,13 @@ function SocialIcon({ kind }: { kind: "twitter" | "instagram" | "facebook" }) {
   );
 }
 
-export default function Footer({ site }: { site: SiteConfig }) {
+export default function Footer({
+  site,
+  locale,
+}: {
+  site: SiteConfig;
+  locale: Locale;
+}) {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-brand-900 text-white">
@@ -53,7 +60,7 @@ export default function Footer({ site }: { site: SiteConfig }) {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-200">
-              Explore
+              {t(locale, "explore")}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/80">
               {site.nav.map((item) => (
@@ -65,7 +72,7 @@ export default function Footer({ site }: { site: SiteConfig }) {
               ))}
               <li>
                 <Link href="/gallery" className="hover:text-white">
-                  Gallery
+                  {t(locale, "gallery")}
                 </Link>
               </li>
             </ul>
@@ -73,27 +80,27 @@ export default function Footer({ site }: { site: SiteConfig }) {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-200">
-              Get Involved
+              {t(locale, "get_involved")}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/80">
               <li>
                 <Link href="/donate" className="hover:text-white">
-                  Donate
+                  {t(locale, "donate")}
                 </Link>
               </li>
               <li>
                 <Link href="/get-involved" className="hover:text-white">
-                  Volunteer &amp; Support
+                  {t(locale, "volunteer_support")}
                 </Link>
               </li>
               <li>
                 <Link href="/learn-more" className="hover:text-white">
-                  Learn More
+                  {t(locale, "learn_more")}
                 </Link>
               </li>
               <li>
                 <Link href="/news" className="hover:text-white">
-                  News &amp; Press
+                  {t(locale, "news_press")}
                 </Link>
               </li>
             </ul>
@@ -101,7 +108,7 @@ export default function Footer({ site }: { site: SiteConfig }) {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-200">
-              Contact
+              {t(locale, "contact")}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-white/80">
               <li>
@@ -117,7 +124,7 @@ export default function Footer({ site }: { site: SiteConfig }) {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {year} {site.orgName}. All rights reserved.
+            &copy; {year} {site.orgName}. {t(locale, "all_rights_reserved")}
           </p>
           <p>{site.founded}</p>
         </div>

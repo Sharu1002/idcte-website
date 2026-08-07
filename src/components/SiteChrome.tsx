@@ -4,12 +4,15 @@ import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
 import type { SiteConfig } from "@/lib/content";
+import type { Locale } from "@/lib/i18n";
 
 export default function SiteChrome({
   site,
+  locale,
   children,
 }: {
   site: SiteConfig;
+  locale: Locale;
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
@@ -17,9 +20,9 @@ export default function SiteChrome({
 
   return (
     <>
-      <Header site={site} />
+      <Header site={site} locale={locale} />
       <main className="flex-1">{children}</main>
-      <Footer site={site} />
+      <Footer site={site} locale={locale} />
     </>
   );
 }

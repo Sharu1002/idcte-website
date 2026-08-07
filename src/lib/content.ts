@@ -1,8 +1,17 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { Locale } from "./i18n";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
+
+function readJson(baseName: string, locale: Locale = "en"): { items: unknown[] } {
+  const taFile = path.join(CONTENT_DIR, `${baseName}.ta.json`);
+  const enFile = path.join(CONTENT_DIR, `${baseName}.json`);
+  const file = locale === "ta" && fs.existsSync(taFile) ? taFile : enFile;
+  const raw = fs.readFileSync(file, "utf8");
+  return JSON.parse(raw);
+}
 
 export type SiteConfig = {
   orgName: string;
@@ -16,8 +25,11 @@ export type SiteConfig = {
   nav: { label: string; href: string }[];
 };
 
-export function getSiteConfig(): SiteConfig {
-  const raw = fs.readFileSync(path.join(CONTENT_DIR, "site.json"), "utf8");
+export function getSiteConfig(locale: Locale = "en"): SiteConfig {
+  const taFile = path.join(CONTENT_DIR, "site.ta.json");
+  const enFile = path.join(CONTENT_DIR, "site.json");
+  const file = locale === "ta" && fs.existsSync(taFile) ? taFile : enFile;
+  const raw = fs.readFileSync(file, "utf8");
   return JSON.parse(raw);
 }
 
@@ -29,9 +41,8 @@ export type Pillar = {
   body: string;
 };
 
-export function getPillars(): Pillar[] {
-  const raw = fs.readFileSync(path.join(CONTENT_DIR, "pillars.json"), "utf8");
-  return JSON.parse(raw).items;
+export function getPillars(locale: Locale = "en"): Pillar[] {
+  return readJson("pillars", locale).items as Pillar[];
 }
 
 export type Achievement = {
@@ -39,12 +50,8 @@ export type Achievement = {
   description: string;
 };
 
-export function getAchievements(): Achievement[] {
-  const raw = fs.readFileSync(
-    path.join(CONTENT_DIR, "achievements.json"),
-    "utf8"
-  );
-  return JSON.parse(raw).items;
+export function getAchievements(locale: Locale = "en"): Achievement[] {
+  return readJson("achievements", locale).items as Achievement[];
 }
 
 export type Milestone = {
@@ -53,12 +60,8 @@ export type Milestone = {
   description: string;
 };
 
-export function getMilestones(): Milestone[] {
-  const raw = fs.readFileSync(
-    path.join(CONTENT_DIR, "milestones.json"),
-    "utf8"
-  );
-  return JSON.parse(raw).items;
+export function getMilestones(locale: Locale = "en"): Milestone[] {
+  return readJson("milestones", locale).items as Milestone[];
 }
 
 export type WaysToHelp = {
@@ -66,12 +69,8 @@ export type WaysToHelp = {
   description: string;
 };
 
-export function getWaysToHelp(): WaysToHelp[] {
-  const raw = fs.readFileSync(
-    path.join(CONTENT_DIR, "ways-to-help.json"),
-    "utf8"
-  );
-  return JSON.parse(raw).items;
+export function getWaysToHelp(locale: Locale = "en"): WaysToHelp[] {
+  return readJson("ways-to-help", locale).items as WaysToHelp[];
 }
 
 export type GalleryPhoto = {
@@ -79,9 +78,8 @@ export type GalleryPhoto = {
   caption: string;
 };
 
-export function getGalleryPhotos(): GalleryPhoto[] {
-  const raw = fs.readFileSync(path.join(CONTENT_DIR, "gallery.json"), "utf8");
-  return JSON.parse(raw).items;
+export function getGalleryPhotos(locale: Locale = "en"): GalleryPhoto[] {
+  return readJson("gallery", locale).items as GalleryPhoto[];
 }
 
 export type ThuyilumIllamSite = {
@@ -91,12 +89,10 @@ export type ThuyilumIllamSite = {
   after: string;
 };
 
-export function getThuyilumIllamSites(): ThuyilumIllamSite[] {
-  const raw = fs.readFileSync(
-    path.join(CONTENT_DIR, "thuyilum-illam.json"),
-    "utf8"
-  );
-  return JSON.parse(raw).items;
+export function getThuyilumIllamSites(
+  locale: Locale = "en"
+): ThuyilumIllamSite[] {
+  return readJson("thuyilum-illam", locale).items as ThuyilumIllamSite[];
 }
 
 export type PageContent = {
@@ -105,8 +101,10 @@ export type PageContent = {
   content: string;
 };
 
-export function getPage(slug: string): PageContent {
-  const file = path.join(CONTENT_DIR, "pages", `${slug}.md`);
+export function getPage(slug: string, locale: Locale = "en"): PageContent {
+  const taFile = path.join(CONTENT_DIR, "pages", `${slug}.ta.md`);
+  const enFile = path.join(CONTENT_DIR, "pages", `${slug}.md`);
+  const file = locale === "ta" && fs.existsSync(taFile) ? taFile : enFile;
   const raw = fs.readFileSync(file, "utf8");
   const { data, content } = matter(raw);
   return { slug, data: data as Record<string, string>, content };
@@ -122,24 +120,24 @@ export type NewsItem = {
   content: string;
 };
 
-function readCollection(dirName: string) {
+function readCollection(dirName: string, locale: Locale = "en") {
   const dir = path.join(CONTENT_DIR, dirName);
   const files = fs.existsSync(dir)
-    ? fs.readdirSync(dir).filter((f) => f.endsWith(".md"))
+    ? fs.readdirSync(dir).filter((f) => f.endsWith(".md") && !f.endsWith(".ta.md"))
     : [];
   return files.map((filename) => {
-    const raw = fs.readFileSync(path.join(dir, filename), "utf8");
+    const slug = filename.replace(/\.md$/, "");
+    const taPath = path.join(dir, `${slug}.ta.md`);
+    const useFile =
+      locale === "ta" && fs.existsSync(taPath) ? taPath : path.join(dir, filename);
+    const raw = fs.readFileSync(useFile, "utf8");
     const { data, content } = matter(raw);
-    return {
-      slug: filename.replace(/\.md$/, ""),
-      data,
-      content,
-    };
+    return { slug, data, content };
   });
 }
 
-export function getAllNews(): NewsItem[] {
-  return readCollection("news")
+export function getAllNews(locale: Locale = "en"): NewsItem[] {
+  return readCollection("news", locale)
     .map((item) => ({
       slug: item.slug,
       title: item.data.title as string,
@@ -152,8 +150,11 @@ export function getAllNews(): NewsItem[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getNewsBySlug(slug: string): NewsItem | undefined {
-  return getAllNews().find((n) => n.slug === slug);
+export function getNewsBySlug(
+  slug: string,
+  locale: Locale = "en"
+): NewsItem | undefined {
+  return getAllNews(locale).find((n) => n.slug === slug);
 }
 
 export type BlogPost = {
@@ -167,8 +168,8 @@ export type BlogPost = {
   content: string;
 };
 
-export function getAllBlogPosts(): BlogPost[] {
-  return readCollection("blog")
+export function getAllBlogPosts(locale: Locale = "en"): BlogPost[] {
+  return readCollection("blog", locale)
     .map((item) => ({
       slug: item.slug,
       title: item.data.title as string,
@@ -182,8 +183,11 @@ export function getAllBlogPosts(): BlogPost[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return getAllBlogPosts().find((p) => p.slug === slug);
+export function getBlogPostBySlug(
+  slug: string,
+  locale: Locale = "en"
+): BlogPost | undefined {
+  return getAllBlogPosts(locale).find((p) => p.slug === slug);
 }
 
 export type LearnMoreTopic = {
@@ -194,8 +198,8 @@ export type LearnMoreTopic = {
   content: string;
 };
 
-export function getAllLearnMore(): LearnMoreTopic[] {
-  return readCollection("learn-more")
+export function getAllLearnMore(locale: Locale = "en"): LearnMoreTopic[] {
+  return readCollection("learn-more", locale)
     .map((item) => ({
       slug: item.slug,
       title: item.data.title as string,
@@ -206,6 +210,9 @@ export function getAllLearnMore(): LearnMoreTopic[] {
     .sort((a, b) => a.order - b.order);
 }
 
-export function getLearnMoreBySlug(slug: string): LearnMoreTopic | undefined {
-  return getAllLearnMore().find((t) => t.slug === slug);
+export function getLearnMoreBySlug(
+  slug: string,
+  locale: Locale = "en"
+): LearnMoreTopic | undefined {
+  return getAllLearnMore(locale).find((t) => t.slug === slug);
 }

@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import MarkdownBody from "@/components/MarkdownBody";
 import DonateForm from "@/components/DonateForm";
 import { getPage } from "@/lib/content";
+import { getLocale } from "@/lib/locale-server";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -11,8 +12,9 @@ export const metadata: Metadata = {
     "Support IDCTE's advocacy and knowledge mobilization work with a one-time or monthly donation.",
 };
 
-export default function DonatePage() {
-  const page = getPage("donate");
+export default async function DonatePage() {
+  const locale = await getLocale();
+  const page = getPage("donate", locale);
 
   return (
     <>
@@ -23,7 +25,7 @@ export default function DonatePage() {
 
         <div className="mt-12 border-t border-brand-900/15 pt-12">
           <Suspense fallback={null}>
-            <DonateForm />
+            <DonateForm locale={locale} />
           </Suspense>
         </div>
       </section>

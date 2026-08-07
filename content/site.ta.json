@@ -1,0 +1,24 @@
+{
+  "orgName": "International Diplomatic Council of Tamil Eelam",
+  "shortName": "IDCTE",
+  "tagline": "ஈழத் தமிழரின் உரிமைகள், தன்னாட்சி மற்றும் நீதிக்காக குரல் கொடுத்தல்",
+  "email": "info@idcte.org",
+  "address": "Østerbrogade 226, st. 1., 2100 København Ø, Denmark",
+  "cvr": "CVR - 42651664",
+  "founded": "ஆகஸ்ட் 2021 முதல் கோபன்ஹேகன், டென்மார்க்கில் பதிவு செய்யப்பட்டுள்ளது",
+  "social": {
+    "twitter": "https://twitter.com/idcte_org",
+    "instagram": "https://instagram.com/idcte_org",
+    "facebook": "https://facebook.com/idcte.org"
+  },
+  "nav": [
+    { "label": "முகப்பு", "href": "/" },
+    { "label": "எங்களைப் பற்றி", "href": "/about" },
+    { "label": "எங்கள் பணி", "href": "/our-work" },
+    { "label": "மேலும் அறிய", "href": "/learn-more" },
+    { "label": "செய்தி & அறிக்கைகள்", "href": "/news" },
+    { "label": "வலைப்பதிவு", "href": "/blog" },
+    { "label": "இணைந்திடுங்கள்", "href": "/get-involved" },
+    { "label": "தொடர்பு", "href": "/contact" }
+  ]
+}
