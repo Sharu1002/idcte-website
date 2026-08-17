@@ -17,8 +17,14 @@ export function proxy(request: NextRequest) {
   return NextResponse.redirect(url);
 }
 
+// The CMS is excluded from the preview gate on purpose: /admin has its own
+// GitHub OAuth login, so only repo collaborators can get in either way. Leaving
+// it gated breaks it — Decap fetches /admin/config.yml itself, and the gate
+// answers that request with the login page instead of the config. api/auth and
+// api/callback are excluded for the same reason: the OAuth round-trip can't
+// survive being redirected.
 export const config = {
   matcher: [
-    "/((?!preview-login|api/preview-auth|_next/static|_next/image|favicon.ico|images|documents).*)",
+    "/((?!preview-login|api/preview-auth|api/auth|api/callback|admin|_next/static|_next/image|favicon.ico|images|documents).*)",
   ],
 };
