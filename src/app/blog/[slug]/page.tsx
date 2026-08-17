@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import MarkdownBody from "@/components/MarkdownBody";
+import PostGallery from "@/components/PostGallery";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
 import { t, type Locale } from "@/lib/i18n";
@@ -78,6 +79,17 @@ export default async function BlogPostPage({
       <div className="mt-8">
         <MarkdownBody content={post.content} />
       </div>
+
+      {post.photos.length > 0 && (
+        <div className="mt-12">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-brand-600">
+            {t(locale, "photos")}
+          </h2>
+          <div className="mt-5">
+            <PostGallery photos={post.photos} />
+          </div>
+        </div>
+      )}
     </article>
   );
 }

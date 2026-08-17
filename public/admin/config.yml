@@ -91,7 +91,14 @@ collections:
       - { label: "Summary (shown on the blog list card)", name: "summary", widget: "text" }
       - { label: "Author", name: "author", widget: "string", default: "IDCTE Research Team" }
       - { label: "Tags", name: "tags", widget: "list", default: ["Analysis"] }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Main Image", name: "image", widget: "image", required: false }
+      - label: "Photos (adds a gallery at the end of the post)"
+        name: "photos"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Photo", name: "src", widget: "image" }
+          - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "news"
@@ -206,7 +213,14 @@ collections:
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Main Image", name: "image", widget: "image", required: false }
+      - label: "Photos (adds a gallery at the end of the post)"
+        name: "photos"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Photo", name: "src", widget: "image" }
+          - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "news_ta"

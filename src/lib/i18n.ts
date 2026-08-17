@@ -72,6 +72,7 @@ const dictionary = {
       "Moments from our meetings with parliamentarians, diplomats, and institutions across Europe.",
     before_label: "Before",
     now_label: "Now",
+    photos: "Photos",
     language_toggle_label: "தமிழ்",
   },
   ta: {
@@ -143,6 +144,7 @@ const dictionary = {
       "ஐரோப்பா முழுவதும் உள்ள பாராளுமன்ற உறுப்பினர்கள், இராஜதந்திரிகள் மற்றும் நிறுவனங்களுடனான எங்கள் சந்திப்புகளின் தருணங்கள்.",
     before_label: "முன்பு",
     now_label: "இப்போது",
+    photos: "படங்கள்",
     language_toggle_label: "English",
   },
 } as const;

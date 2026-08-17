@@ -5,6 +5,13 @@ summary: "IDCTE was founded by a small group of young people in Denmark. Four ye
 author: "IDCTE Team"
 tags: ["Diaspora", "Our Story"]
 image: "/images/photos/IDCTE-austria-mfa.JPG"
+photos:
+  - src: "/images/photos/IDCTE-Strasbourg.jpg"
+    caption: "European Parliament — Strasbourg"
+  - src: "/images/photos/IDCTE-Norwegian-MP.JPG"
+    caption: "Meeting a Member of the Norwegian Parliament"
+  - src: "/images/photos/IDCTE-austria-mfa.JPG"
+    caption: "Austrian Federal Ministry for European and International Affairs"
 lang: "en"
 ---
 ## Starting From Frustration

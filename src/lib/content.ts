@@ -166,6 +166,11 @@ export function getNewsBySlug(
   return getAllNews(locale).find((n) => n.slug === slug);
 }
 
+export type PostPhoto = {
+  src: string;
+  caption?: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -174,21 +179,39 @@ export type BlogPost = {
   author: string;
   tags: string[];
   image?: string;
+  photos: PostPhoto[];
   content: string;
 };
 
 export function getAllBlogPosts(locale: Locale = "en"): BlogPost[] {
+  // Photos are the same pictures in either language — only the captions differ.
+  // So a translated post that hasn't listed its own photos borrows the English
+  // ones, and adding photos once is enough to have them show on both versions.
+  const fallbackPhotos =
+    locale === "ta"
+      ? new Map(
+          readCollection("blog", "en").map((item) => [
+            item.slug,
+            (item.data.photos as PostPhoto[] | undefined) ?? [],
+          ])
+        )
+      : undefined;
+
   return readCollection("blog", locale)
-    .map((item) => ({
-      slug: item.slug,
-      title: item.data.title as string,
-      date: item.data.date as string,
-      summary: item.data.summary as string,
-      author: item.data.author as string,
-      tags: (item.data.tags as string[] | undefined) ?? [],
-      image: item.data.image as string | undefined,
-      content: item.content,
-    }))
+    .map((item) => {
+      const own = (item.data.photos as PostPhoto[] | undefined) ?? [];
+      return {
+        slug: item.slug,
+        title: item.data.title as string,
+        date: item.data.date as string,
+        summary: item.data.summary as string,
+        author: item.data.author as string,
+        tags: (item.data.tags as string[] | undefined) ?? [],
+        image: item.data.image as string | undefined,
+        photos: own.length > 0 ? own : fallbackPhotos?.get(item.slug) ?? [],
+        content: item.content,
+      };
+    })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
