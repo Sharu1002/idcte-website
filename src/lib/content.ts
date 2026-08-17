@@ -64,6 +64,15 @@ export function getMilestones(locale: Locale = "en"): Milestone[] {
   return readJson("milestones", locale).items as Milestone[];
 }
 
+export type AdvocacyReach = {
+  label: string;
+  note: string;
+};
+
+export function getAdvocacyReach(locale: Locale = "en"): AdvocacyReach[] {
+  return readJson("advocacy-reach", locale).items as AdvocacyReach[];
+}
+
 export type WaysToHelp = {
   title: string;
   description: string;

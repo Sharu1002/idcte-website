@@ -47,7 +47,6 @@ export default async function HomePage() {
             stats={[
               { value: page.data.stat1Value, label: page.data.stat1Label },
               { value: page.data.stat2Value, label: page.data.stat2Label },
-              { value: page.data.stat3Value, label: page.data.stat3Label },
             ]}
           />
         </div>

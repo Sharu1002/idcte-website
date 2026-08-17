@@ -3,9 +3,9 @@ import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import MarkdownBody from "@/components/MarkdownBody";
 import PhotoGrid from "@/components/PhotoGrid";
-import Milestones from "@/components/Milestones";
+import AdvocacyReachList from "@/components/AdvocacyReach";
 import Button from "@/components/Button";
-import { getPage, getMilestones } from "@/lib/content";
+import { getPage, getAdvocacyReach } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
 import { t } from "@/lib/i18n";
 
@@ -17,8 +17,9 @@ export const metadata: Metadata = {
 
 const copy = {
   en: {
-    historyEyebrow: "Our History",
-    historyTitle: "From Copenhagen to the world's diplomatic halls",
+    whyEyebrow: "Why We Exist",
+    reachEyebrow: "Our Advocacy",
+    reachTitle: "Where we've engaged",
     fieldEyebrow: "In the Field",
     fieldTitle: "Meeting policymakers where decisions are made",
     captionMep: "With a Member of the European Parliament",
@@ -26,8 +27,9 @@ const copy = {
     captionBrussels: "IDCTE delegation — Brussels",
   },
   ta: {
-    historyEyebrow: "எங்கள் வரலாறு",
-    historyTitle: "கோபன்ஹேகனிலிருந்து உலகின் இராஜதந்திர அரங்குகள் வரை",
+    whyEyebrow: "நாங்கள் ஏன் இருக்கிறோம்",
+    reachEyebrow: "எங்கள் வக்காலத்து",
+    reachTitle: "நாங்கள் ஈடுபட்டுள்ள இடங்கள்",
     fieldEyebrow: "களப் பணியில்",
     fieldTitle: "முடிவுகள் எடுக்கப்படும் இடங்களில் கொள்கை வகுப்பாளர்களைச் சந்தித்தல்",
     captionMep: "ஐரோப்பிய பாராளுமன்ற உறுப்பினர் ஒருவருடன்",
@@ -39,7 +41,7 @@ const copy = {
 export default async function AboutPage() {
   const locale = await getLocale();
   const page = getPage("about", locale);
-  const milestones = getMilestones(locale);
+  const reach = getAdvocacyReach(locale);
   const c = copy[locale];
 
   return (
@@ -63,11 +65,22 @@ export default async function AboutPage() {
         </div>
       </section>
 
+      <section className="border-t border-brand-900/15 bg-brand-900 py-16">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-brand-300">
+            {c.whyEyebrow}
+          </p>
+          <p className="mt-4 text-2xl font-medium leading-snug text-white sm:text-3xl">
+            {page.data.whyWeExist}
+          </p>
+        </div>
+      </section>
+
       <section className="border-t border-brand-900/15 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow={c.historyEyebrow} title={c.historyTitle} />
+          <SectionHeading eyebrow={c.reachEyebrow} title={c.reachTitle} />
           <div className="mt-12">
-            <Milestones items={milestones} />
+            <AdvocacyReachList items={reach} />
           </div>
         </div>
       </section>

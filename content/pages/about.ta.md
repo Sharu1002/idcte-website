@@ -4,6 +4,7 @@ heroSubtitle: "ஈழத் தமிழ் தேசத்திற்காக
 heroImage: "/images/photos/IDCTE-speaking-conference.jpg"
 regTitle: "பதிவு"
 regBody: "International Diplomatic Council of Tamil Eelam (IDCTE) CVR - 42651664 Østerbrogade 226, st. 1., 2100 København Ø, Denmark"
+whyWeExist: "தமிழ் மக்களுக்கான நீதி மிக நீண்ட காலமாக தாமதமாகியிருப்பதால் நாங்கள் இருக்கிறோம். சர்வதேச சமூகம் கண்டுகொள்ளாமல் இருப்பதைப் பார்த்து வளர்ந்த நோர்டிக் நாடுகள் முழுவதும் உள்ள இளைய ஈழத் தமிழரால் IDCTE நிறுவப்பட்டது — மற்றவர்கள் செயல்படுவதற்காகக் காத்திருப்பதை நிறுத்த முடிவு செய்தோம்."
 ---
 ## நாங்கள் யார்
 

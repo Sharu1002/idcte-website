@@ -4,6 +4,7 @@ heroSubtitle: "A youth-founded human rights organization advocating for the Eela
 heroImage: "/images/photos/IDCTE-speaking-conference.jpg"
 regTitle: "Registration"
 regBody: "International Diplomatic Council of Tamil Eelam (IDCTE) CVR - 42651664 Østerbrogade 226, st. 1., 2100 København Ø, Denmark"
+whyWeExist: "We exist because justice for the Tamil people has been delayed for too long. IDCTE was founded by young Eelam Tamils across the Nordic countries who grew up watching the international community look away — and decided to stop waiting for someone else to act."
 ---
 ## Who We Are
 
