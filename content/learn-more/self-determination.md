@@ -2,6 +2,7 @@
 title: "What Is Self-Determination?"
 teaser: "The political core of IDCTE's advocacy: the right of the Tamil nation to determine its own future."
 order: 3
+lang: "en"
 ---
 Self-determination is the principle, recognized in international law, that a people have the right to freely determine their political status and pursue their economic, social, and cultural development. It is enshrined in the UN Charter and in the International Covenants on Human Rights.
 

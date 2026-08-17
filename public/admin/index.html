@@ -7,6 +7,40 @@
     <link rel="icon" href="/images/brand/idcte-logo.png" />
   </head>
   <body>
+    <script>
+      // Hold off auto-init so base_url can be filled in below.
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // config.yml stays the single source of truth for collections. The only
+      // thing added here is backend.base_url, which has to point at whatever
+      // origin the site is currently served from — the GitHub OAuth handlers
+      // live at /api/auth and /api/callback on this same site. Resolving it at
+      // runtime means one config works on localhost, Vercel preview URLs, and
+      // the live domain with nothing to edit between them.
+      //
+      // Note: CMS.init() replaces the config rather than merging into it, so
+      // the full parsed file is passed back in.
+      fetch("/admin/config.yml")
+        .then(function (res) {
+          if (!res.ok) throw new Error("config.yml returned " + res.status);
+          return res.text();
+        })
+        .then(function (text) {
+          var config = window.jsyaml.load(text);
+          config.load_config_file = false;
+          config.backend.base_url = window.location.origin;
+          window.CMS.init({ config: config });
+        })
+        .catch(function (err) {
+          document.body.innerHTML =
+            '<pre style="font:14px/1.5 ui-monospace,monospace;padding:2rem;color:#b00">' +
+            "Could not start the content manager:\n\n" +
+            String(err) +
+            "</pre>";
+        });
+    </script>
   </body>
 </html>

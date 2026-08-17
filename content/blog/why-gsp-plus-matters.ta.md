@@ -5,6 +5,7 @@ summary: "கொழும்பின் மீது சர்வதேச ச�
 author: "IDCTE வக்காலத்துக் குழு"
 tags: ["வக்காலத்து", "ஐரோப்பிய ஒன்றியம்"]
 image: "/images/photos/IDCTE-brussels-MEP.jpg"
+lang: "ta"
 ---
 ## நிபந்தனைகளுடன் கூடிய ஒரு வர்த்தக ஒப்பந்தம்
 

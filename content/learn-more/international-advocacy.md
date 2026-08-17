@@ -2,6 +2,7 @@
 title: "International Advocacy & Accountability"
 teaser: "How IDCTE engages the UN, EU, and governments worldwide to press for accountability."
 order: 7
+lang: "en"
 ---
 IDCTE's advocacy runs through the institutions where international accountability is decided. We engage the UN Human Rights Council and the OHCHR in Geneva ahead of key sessions, meet with Members of the European Parliament to press for an international inquiry into the genocide and for the withdrawal of Sri Lanka's GSP+ trade privileges, and brief Members of Parliament and foreign service officials across Europe, the United States, and beyond.
 

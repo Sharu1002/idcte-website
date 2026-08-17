@@ -5,6 +5,7 @@ summary: "The armed conflict ended in 2009, but IDCTE's research points to a qui
 author: "IDCTE Research Team"
 tags: ["Analysis", "Structural Genocide"]
 image: "/images/photos/IDCTE-speaking-at-conference.jpg"
+lang: "en"
 ---
 ## A Different Kind of Violence
 

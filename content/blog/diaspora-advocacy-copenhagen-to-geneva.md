@@ -5,6 +5,7 @@ summary: "IDCTE was founded by a small group of young people in Denmark. Four ye
 author: "IDCTE Team"
 tags: ["Diaspora", "Our Story"]
 image: "/images/photos/IDCTE-austria-mfa.JPG"
+lang: "en"
 ---
 ## Starting From Frustration
 

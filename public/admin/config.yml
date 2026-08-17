@@ -1,17 +1,19 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME # TODO: update after you push this project to GitHub
+  repo: Sharu1002/idcte-website
   branch: main
-  base_url: https://YOUR-DEPLOYED-DOMAIN # TODO: update to your live Vercel/production URL
   auth_endpoint: api/auth
+  # base_url is injected at runtime in index.html from window.location.origin,
+  # so this works on localhost, Vercel previews, and the live domain alike.
 
 publish_mode: simple
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  # ---------------------------------------------------------------- ENGLISH --
   - name: "pages"
-    label: "Pages"
+    label: "Pages (English)"
     files:
       - file: "content/pages/home.md"
         label: "Home Page"
@@ -25,8 +27,6 @@ collections:
           - { label: "Stat 1 Label", name: "stat1Label", widget: "string" }
           - { label: "Stat 2 Value", name: "stat2Value", widget: "string" }
           - { label: "Stat 2 Label", name: "stat2Label", widget: "string" }
-          - { label: "Stat 3 Value", name: "stat3Value", widget: "string" }
-          - { label: "Stat 3 Label", name: "stat3Label", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - file: "content/pages/about.md"
@@ -38,6 +38,7 @@ collections:
           - { label: "Hero Image", name: "heroImage", widget: "image" }
           - { label: "Registration Box Title", name: "regTitle", widget: "string" }
           - { label: "Registration Box Text", name: "regBody", widget: "text" }
+          - { label: "Why We Exist (pull quote)", name: "whyWeExist", widget: "text" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - file: "content/pages/our-work.md"
@@ -67,12 +68,42 @@ collections:
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
           - { label: "Body", name: "body", widget: "markdown" }
 
+      - file: "content/pages/donate.md"
+        label: "Donate Page"
+        name: "donate"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog"
+    label: "Blog (English)"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    filter: { field: "lang", value: "en" }
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Summary (shown on the blog list card)", name: "summary", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "IDCTE Research Team" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Analysis"] }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
   - name: "news"
-    label: "News & Press"
+    label: "News & Press (English)"
     folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: { field: "lang", value: "en" }
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ["date", "title"]
     fields:
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
       - { label: "Summary", name: "summary", widget: "text" }
@@ -81,20 +112,141 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "learn-more"
-    label: "Learn More"
+    label: "Learn More (English)"
     folder: "content/learn-more"
     create: true
+    filter: { field: "lang", value: "en" }
+    summary: "{{order}}. {{title}}"
+    sortable_fields: ["order", "title"]
     fields:
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Teaser (shown on hub card)", name: "teaser", widget: "text" }
       - { label: "Order", name: "order", widget: "number", default: 99 }
       - { label: "Body", name: "body", widget: "markdown" }
 
+  # ------------------------------------------------------------------ TAMIL --
+  - name: "pages_ta"
+    label: "பக்கங்கள் (Tamil)"
+    files:
+      - file: "content/pages/home.ta.md"
+        label: "Home Page — Tamil"
+        name: "home_ta"
+        fields:
+          - { label: "Hero Eyebrow", name: "heroEyebrow", widget: "string" }
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Stat 1 Value", name: "stat1Value", widget: "string" }
+          - { label: "Stat 1 Label", name: "stat1Label", widget: "string" }
+          - { label: "Stat 2 Value", name: "stat2Value", widget: "string" }
+          - { label: "Stat 2 Label", name: "stat2Label", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "content/pages/about.ta.md"
+        label: "About Page — Tamil"
+        name: "about_ta"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Registration Box Title", name: "regTitle", widget: "string" }
+          - { label: "Registration Box Text", name: "regBody", widget: "text" }
+          - { label: "Why We Exist (pull quote)", name: "whyWeExist", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "content/pages/our-work.ta.md"
+        label: "Our Work Page — Tamil"
+        name: "our-work_ta"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Achievements Section Title", name: "achievementsTitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "content/pages/get-involved.ta.md"
+        label: "Get Involved Page — Tamil"
+        name: "get-involved_ta"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "content/pages/contact.ta.md"
+        label: "Contact Page — Tamil"
+        name: "contact_ta"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "content/pages/donate.ta.md"
+        label: "Donate Page — Tamil"
+        name: "donate_ta"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog_ta"
+    label: "வலைப்பதிவு (Tamil)"
+    folder: "content/blog"
+    create: true
+    extension: "ta.md"
+    format: "yaml-frontmatter"
+    slug: "{{slug}}"
+    filter: { field: "lang", value: "ta" }
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Language", name: "lang", widget: "hidden", default: "ta" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "news_ta"
+    label: "செய்தி & அறிக்கைகள் (Tamil)"
+    folder: "content/news"
+    create: true
+    extension: "ta.md"
+    format: "yaml-frontmatter"
+    filter: { field: "lang", value: "ta" }
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Language", name: "lang", widget: "hidden", default: "ta" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Image (optional)", name: "image", widget: "image", required: false }
+      - { label: "PDF (optional)", name: "pdf", widget: "file", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "learn-more_ta"
+    label: "மேலும் அறிய (Tamil)"
+    folder: "content/learn-more"
+    create: true
+    extension: "ta.md"
+    format: "yaml-frontmatter"
+    filter: { field: "lang", value: "ta" }
+    summary: "{{order}}. {{title}}"
+    fields:
+      - { label: "Language", name: "lang", widget: "hidden", default: "ta" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Teaser", name: "teaser", widget: "text" }
+      - { label: "Order", name: "order", widget: "number", default: 99 }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # --------------------------------------------------------------- SETTINGS --
   - name: "settings"
     label: "Site Settings"
     files:
       - file: "content/site.json"
-        label: "Organization Info"
+        label: "Organization Info (English)"
         name: "site"
         fields:
           - { label: "Organization Name", name: "orgName", widget: "string" }
@@ -118,8 +270,33 @@ collections:
               - { label: "Label", name: "label", widget: "string" }
               - { label: "Link", name: "href", widget: "string" }
 
+      - file: "content/site.ta.json"
+        label: "Organization Info (Tamil)"
+        name: "site_ta"
+        fields:
+          - { label: "Organization Name", name: "orgName", widget: "string" }
+          - { label: "Short Name", name: "shortName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "CVR / Registration", name: "cvr", widget: "string" }
+          - { label: "Founded Note", name: "founded", widget: "string" }
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Twitter / X", name: "twitter", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "Facebook", name: "facebook", widget: "string" }
+          - label: "Navigation"
+            name: "nav"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
+
       - file: "content/pillars.json"
-        label: "How We Work (3 Pillars)"
+        label: "How We Work — Two Pillars (English)"
         name: "pillars"
         fields:
           - label: "Pillars"
@@ -127,12 +304,49 @@ collections:
             widget: "list"
             fields:
               - { label: "ID", name: "id", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string", required: false }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Short Summary", name: "summary", widget: "text" }
               - { label: "Full Description", name: "body", widget: "text" }
 
+      - file: "content/pillars.ta.json"
+        label: "How We Work — Two Pillars (Tamil)"
+        name: "pillars_ta"
+        fields:
+          - label: "Pillars"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Short Summary", name: "summary", widget: "text" }
+              - { label: "Full Description", name: "body", widget: "text" }
+
+      - file: "content/advocacy-reach.json"
+        label: "Where We've Engaged (English)"
+        name: "advocacy-reach"
+        fields:
+          - label: "Entries"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Note", name: "note", widget: "text" }
+
+      - file: "content/advocacy-reach.ta.json"
+        label: "Where We've Engaged (Tamil)"
+        name: "advocacy-reach_ta"
+        fields:
+          - label: "Entries"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Note", name: "note", widget: "text" }
+
       - file: "content/achievements.json"
-        label: "Impact / Achievements"
+        label: "Impact / Achievements (English)"
         name: "achievements"
         fields:
           - label: "Achievements"
@@ -142,8 +356,19 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
+      - file: "content/achievements.ta.json"
+        label: "Impact / Achievements (Tamil)"
+        name: "achievements_ta"
+        fields:
+          - label: "Achievements"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
       - file: "content/ways-to-help.json"
-        label: "Ways to Help"
+        label: "Ways to Help (English)"
         name: "ways-to-help"
         fields:
           - label: "Ways to Help"
@@ -153,14 +378,61 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
-      - file: "content/milestones.json"
-        label: "History / Milestones"
-        name: "milestones"
+      - file: "content/ways-to-help.ta.json"
+        label: "Ways to Help (Tamil)"
+        name: "ways-to-help_ta"
         fields:
-          - label: "Milestones"
+          - label: "Ways to Help"
             name: "items"
             widget: "list"
             fields:
-              - { label: "Year", name: "year", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+
+      - file: "content/gallery.json"
+        label: "Photo Gallery (English)"
+        name: "gallery"
+        fields:
+          - label: "Photos"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "src", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
+
+      - file: "content/gallery.ta.json"
+        label: "Photo Gallery (Tamil captions)"
+        name: "gallery_ta"
+        fields:
+          - label: "Photos"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "src", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
+
+      - file: "content/thuyilum-illam.json"
+        label: "Thuyilum Illam Sites (English)"
+        name: "thuyilum-illam"
+        fields:
+          - label: "Sites"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Site Name", name: "name", widget: "string" }
+              - { label: "Before Photo", name: "before", widget: "image" }
+              - { label: "After Photo", name: "after", widget: "image" }
+
+      - file: "content/thuyilum-illam.ta.json"
+        label: "Thuyilum Illam Sites (Tamil)"
+        name: "thuyilum-illam_ta"
+        fields:
+          - label: "Sites"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Site Name", name: "name", widget: "string" }
+              - { label: "Before Photo", name: "before", widget: "image" }
+              - { label: "After Photo", name: "after", widget: "image" }

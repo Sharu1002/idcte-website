@@ -5,6 +5,7 @@ summary: "டென்மார்க்கில் ஒரு சிறிய �
 author: "IDCTE குழு"
 tags: ["புலம்பெயர்வு", "எங்கள் கதை"]
 image: "/images/photos/IDCTE-austria-mfa.JPG"
+lang: "ta"
 ---
 ## விரக்தியிலிருந்து தொடக்கம்
 

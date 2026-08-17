@@ -2,6 +2,7 @@
 title: "Who Are the Eelam Tamils?"
 teaser: "The indigenous Tamil-speaking nation of the North-East of the island of Sri Lanka."
 order: 1
+lang: "en"
 ---
 Eelam Tamils are the indigenous Tamil-speaking people of the North-East of the island known today as Sri Lanka. "Eelam" refers to the traditional Tamil homeland — the North-Eastern provinces where Tamils have lived for centuries with a distinct language, culture, and political history.
 

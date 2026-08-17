@@ -5,6 +5,7 @@ summary: "ஆயுதப் போராட்டம் 2009 இல் மு�
 author: "IDCTE ஆய்வுக் குழு"
 tags: ["பகுப்பாய்வு", "கட்டமைப்பு இனப்படுகொலை"]
 image: "/images/photos/IDCTE-speaking-at-conference.jpg"
+lang: "ta"
 ---
 ## ஒரு வேறுபட்ட வகை வன்முறை
 

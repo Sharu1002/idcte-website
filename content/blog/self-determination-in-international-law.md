@@ -5,6 +5,7 @@ summary: "Self-determination is one of the most cited — and most contested —
 author: "IDCTE Research Team"
 tags: ["Self-Determination", "International Law"]
 image: "/images/photos/IDCTE-with-TNPF.jpg"
+lang: "en"
 ---
 ## A Right, Not a Slogan
 

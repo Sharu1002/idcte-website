@@ -5,6 +5,7 @@ summary: "GSP+ trade privileges are one of the few concrete points of leverage t
 author: "IDCTE Advocacy Team"
 tags: ["Advocacy", "European Union"]
 image: "/images/photos/IDCTE-brussels-MEP.jpg"
+lang: "en"
 ---
 ## A Trade Deal With Strings Attached
 

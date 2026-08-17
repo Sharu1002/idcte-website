@@ -5,6 +5,7 @@ summary: "தன்னாட்சி என்பது சர்வதேச �
 author: "IDCTE ஆய்வுக் குழு"
 tags: ["தன்னாட்சி", "சர்வதேச சட்டம்"]
 image: "/images/photos/IDCTE-with-TNPF.jpg"
+lang: "ta"
 ---
 ## ஒரு முழக்கம் அல்ல, ஒரு உரிமை
 

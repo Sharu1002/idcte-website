@@ -2,6 +2,7 @@
 title: "History of the Conflict"
 teaser: "Decades of discrimination, violence, and armed conflict between the Sri Lankan state and the Tamil nation."
 order: 2
+lang: "en"
 ---
 Since 1948, Eelam Tamils have faced systematic discrimination by the Sri Lankan state — including the 1948 and 1949 Citizenship Acts that rendered many Tamils stateless, the 1956 "Sinhala Only" language act, and repeated state-organized violence against Tamil civilians, most notably the anti-Tamil pogrom of Black July 1983.
 
