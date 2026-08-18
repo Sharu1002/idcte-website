@@ -7,7 +7,7 @@ summary: The Vaddukoddai Resolution marked a turning point in Eelam Tamils
   for self-determination and separate state Tamil Eelam. Fifty years later, its
   legacy continues to shape conversations about justice, accountability, rights,
   and political aspirations for Eelam Tamils worldwide.
-image: /images/uploads/hit7rrtxsaauk-z.jpeg
+image: /images/uploads/image-6-.png
 ---
 Today, we pause. Not because pausing is easy — but because fifty years demands it. Fifty years since our people stood at Vaddukoddai and said, with one voice: we exist, we have a right to our future, and we will not be erased.
 
