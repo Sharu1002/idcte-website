@@ -2,8 +2,6 @@
 title: "Why the EU's GSP+ Decision on Sri Lanka Matters"
 date: "2025-10-14"
 summary: "GSP+ trade privileges are one of the few concrete points of leverage the international community holds over Colombo. Here's why IDCTE keeps raising it in Brussels — and what withdrawal would actually mean."
-author: "IDCTE Advocacy Team"
-tags: ["Advocacy", "European Union"]
 image: "/images/photos/IDCTE-brussels-MEP.jpg"
 lang: "en"
 ---

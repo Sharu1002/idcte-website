@@ -2,8 +2,6 @@
 title: "Diaspora Advocacy: From Copenhagen to Geneva"
 date: "2025-09-02"
 summary: "IDCTE was founded by a small group of young people in Denmark. Four years on, what does it actually take for a volunteer diaspora organization to get a seat at the table in Geneva and Brussels?"
-author: "IDCTE Team"
-tags: ["Diaspora", "Our Story"]
 image: "/images/photos/IDCTE-austria-mfa.JPG"
 photos:
   - src: "/images/photos/IDCTE-Strasbourg.jpg"

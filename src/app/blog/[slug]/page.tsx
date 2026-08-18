@@ -46,21 +46,11 @@ export default async function BlogPostPage({
         &larr; {t(locale, "back_to_blog")}
       </Link>
 
-      {post.tags.length > 0 && (
-        <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide text-brand-600">
-          {post.tags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
-      )}
-
-      <h1 className="mt-3 text-3xl font-semibold text-brand-900 sm:text-4xl">
+      <h1 className="mt-6 text-3xl font-semibold text-brand-900 sm:text-4xl">
         {post.title}
       </h1>
 
-      <div className="mt-4 flex items-center gap-3 text-sm text-slate-500">
-        <span>{post.author}</span>
-        <span aria-hidden>&middot;</span>
+      <div className="mt-4 text-sm text-slate-500">
         <span>{formatDate(post.date, locale)}</span>
       </div>
 

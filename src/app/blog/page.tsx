@@ -38,14 +38,12 @@ export default async function BlogPage() {
           id: post.slug,
           title: post.title,
           summary: post.summary,
-          author: post.author,
           published: new Date(post.date + "T00:00:00").toLocaleDateString(
             locale === "ta" ? "ta" : "en-GB",
             { day: "numeric", month: "long", year: "numeric" }
           ),
           url: `/blog/${post.slug}`,
           image: post.image ?? "/images/photos/IDCTE-speaking-at-conference.jpg",
-          tags: post.tags,
         }))}
       />
     </>

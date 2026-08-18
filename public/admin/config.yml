@@ -87,10 +87,13 @@ collections:
     fields:
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - label: "Published Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
       - { label: "Summary (shown on the blog list card)", name: "summary", widget: "text" }
-      - { label: "Author", name: "author", widget: "string", default: "IDCTE Research Team" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["Analysis"] }
       - { label: "Main Image", name: "image", widget: "image", required: false }
       - label: "Photos (adds a gallery at the end of the post)"
         name: "photos"
@@ -112,7 +115,12 @@ collections:
     fields:
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - label: "Published Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Image (optional)", name: "image", widget: "image", required: false }
       - { label: "PDF (optional)", name: "pdf", widget: "file", required: false }
@@ -209,10 +217,13 @@ collections:
     fields:
       - { label: "Language", name: "lang", widget: "hidden", default: "ta" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - label: "Published Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
       - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Main Image", name: "image", widget: "image", required: false }
       - label: "Photos (adds a gallery at the end of the post)"
         name: "photos"
@@ -234,7 +245,12 @@ collections:
     fields:
       - { label: "Language", name: "lang", widget: "hidden", default: "ta" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - label: "Published Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Image (optional)", name: "image", widget: "image", required: false }
       - { label: "PDF (optional)", name: "pdf", widget: "file", required: false }

@@ -2,8 +2,6 @@
 title: "Self-Determination in International Law: The Case for Tamileelam"
 date: "2025-07-30"
 summary: "Self-determination is one of the most cited — and most contested — principles in international law. What does it actually require, and how does IDCTE apply it to the Tamil nation's political claims?"
-author: "IDCTE Research Team"
-tags: ["Self-Determination", "International Law"]
 image: "/images/photos/IDCTE-with-TNPF.jpg"
 lang: "en"
 ---

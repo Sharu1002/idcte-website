@@ -10,11 +10,9 @@ export interface BlogPost {
   id: string;
   title: string;
   summary: string;
-  author: string;
   published: string;
   url: string;
   image: string;
-  tags?: string[];
 }
 
 interface Blog8Props {
@@ -41,13 +39,6 @@ const Blog8 = ({ eyebrow, heading, description, posts, locale = "en" }: Blog8Pro
             >
               <div className="grid gap-y-6 sm:grid-cols-10 sm:gap-x-8 md:items-center lg:gap-x-12">
                 <div className="sm:col-span-6">
-                  {post.tags && post.tags.length > 0 && (
-                    <div className="mb-4 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-wide text-brand-600 md:mb-5">
-                      {post.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  )}
                   <h3 className="text-xl font-semibold leading-tight text-brand-900 md:text-2xl">
                     <Link href={post.url} className="hover:text-brand-600">
                       {post.title}
@@ -56,9 +47,7 @@ const Blog8 = ({ eyebrow, heading, description, posts, locale = "en" }: Blog8Pro
                   <p className="mt-4 text-sm leading-relaxed text-slate-600 md:mt-5">
                     {post.summary}
                   </p>
-                  <div className="mt-6 flex items-center gap-3 text-sm text-slate-500 md:mt-7">
-                    <span>{post.author}</span>
-                    <span aria-hidden>&middot;</span>
+                  <div className="mt-6 text-sm text-slate-500 md:mt-7">
                     <span>{post.published}</span>
                   </div>
                   <Link

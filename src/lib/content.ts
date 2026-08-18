@@ -150,7 +150,7 @@ export function getAllNews(locale: Locale = "en"): NewsItem[] {
     .map((item) => ({
       slug: item.slug,
       title: item.data.title as string,
-      date: item.data.date as string,
+      date: toDateString(item.data.date),
       summary: item.data.summary as string,
       pdf: item.data.pdf as string | undefined,
       image: item.data.image as string | undefined,
@@ -166,6 +166,15 @@ export function getNewsBySlug(
   return getAllNews(locale).find((n) => n.slug === slug);
 }
 
+// The CMS writes dates unquoted (`date: 2025-11-03`), which YAML parses into a
+// Date object rather than a string — hand-written files quote them and stay
+// strings. Normalising to YYYY-MM-DD keeps both shapes working, and reading the
+// UTC parts stops the calendar day sliding in negative-offset timezones.
+function toDateString(value: unknown): string {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  return String(value ?? "");
+}
+
 export type PostPhoto = {
   src: string;
   caption?: string;
@@ -176,8 +185,6 @@ export type BlogPost = {
   title: string;
   date: string;
   summary: string;
-  author: string;
-  tags: string[];
   image?: string;
   photos: PostPhoto[];
   content: string;
@@ -203,10 +210,8 @@ export function getAllBlogPosts(locale: Locale = "en"): BlogPost[] {
       return {
         slug: item.slug,
         title: item.data.title as string,
-        date: item.data.date as string,
+        date: toDateString(item.data.date),
         summary: item.data.summary as string,
-        author: item.data.author as string,
-        tags: (item.data.tags as string[] | undefined) ?? [],
         image: item.data.image as string | undefined,
         photos: own.length > 0 ? own : fallbackPhotos?.get(item.slug) ?? [],
         content: item.content,
