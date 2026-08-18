@@ -66,20 +66,15 @@ export default async function BlogPostPage({
         </div>
       )}
 
+      {post.photos.length > 0 && (
+        <div className="mt-8">
+          <PostGallery photos={post.photos} />
+        </div>
+      )}
+
       <div className="mt-8">
         <MarkdownBody content={post.content} />
       </div>
-
-      {post.photos.length > 0 && (
-        <div className="mt-12">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-brand-600">
-            {t(locale, "photos")}
-          </h2>
-          <div className="mt-5">
-            <PostGallery photos={post.photos} />
-          </div>
-        </div>
-      )}
     </article>
   );
 }
