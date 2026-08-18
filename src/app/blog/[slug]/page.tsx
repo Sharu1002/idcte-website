@@ -6,7 +6,8 @@ import MarkdownBody from "@/components/MarkdownBody";
 import PostGallery from "@/components/PostGallery";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
-import { t, type Locale } from "@/lib/i18n";
+import { formatPostDate } from "@/lib/format";
+import { t } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
@@ -23,12 +24,6 @@ export async function generateMetadata({
   return { title: post?.title ?? "Blog" };
 }
 
-function formatDate(date: string, locale: Locale) {
-  return new Date(date + "T00:00:00").toLocaleDateString(
-    locale === "ta" ? "ta" : "en-GB",
-    { day: "numeric", month: "long", year: "numeric" }
-  );
-}
 
 export default async function BlogPostPage({
   params,
@@ -50,9 +45,11 @@ export default async function BlogPostPage({
         {post.title}
       </h1>
 
-      <div className="mt-4 text-sm text-slate-500">
-        <span>{formatDate(post.date, locale)}</span>
-      </div>
+      {formatPostDate(post.date, locale) && (
+        <div className="mt-4 text-sm text-slate-500">
+          <span>{formatPostDate(post.date, locale)}</span>
+        </div>
+      )}
 
       {post.image && (
         <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden bg-slate-100">

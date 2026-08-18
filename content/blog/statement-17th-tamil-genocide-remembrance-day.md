@@ -1,12 +1,10 @@
 ---
 lang: en
 title: STATEMENT | 17th Tamil Genocide Remembrance Day
+date: "2026-05-18"
 summary: "On this day, we remember the tens of thousands of Tamil lives killed
   at Mullivaikal in May 2009 and the Tamil genocide that did not end when the
   guns fell silent. "
-author: IDCTE
-tags:
-  - Analysis
 image: /images/uploads/himoblqwwaafqvl.jpeg
 ---
 On this day, we remember the tens of thousands of Tamil lives killed at Mullivaikal in May 2009 and the Tamil genocide that did not end when the guns fell silent. 

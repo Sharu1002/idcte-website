@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import { Blog8 } from "@/components/blocks/blog8";
 import { getAllBlogPosts } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
+import { formatPostDate } from "@/lib/format";
 import { t } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -38,10 +39,7 @@ export default async function BlogPage() {
           id: post.slug,
           title: post.title,
           summary: post.summary,
-          published: new Date(post.date + "T00:00:00").toLocaleDateString(
-            locale === "ta" ? "ta" : "en-GB",
-            { day: "numeric", month: "long", year: "numeric" }
-          ),
+          published: formatPostDate(post.date, locale),
           url: `/blog/${post.slug}`,
           image: post.image ?? "/images/photos/IDCTE-speaking-at-conference.jpg",
         }))}

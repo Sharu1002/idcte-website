@@ -47,9 +47,11 @@ const Blog8 = ({ eyebrow, heading, description, posts, locale = "en" }: Blog8Pro
                   <p className="mt-4 text-sm leading-relaxed text-slate-600 md:mt-5">
                     {post.summary}
                   </p>
-                  <div className="mt-6 text-sm text-slate-500 md:mt-7">
-                    <span>{post.published}</span>
-                  </div>
+                  {post.published && (
+                    <div className="mt-6 text-sm text-slate-500 md:mt-7">
+                      <span>{post.published}</span>
+                    </div>
+                  )}
                   <Link
                     href={post.url}
                     className="group mt-6 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-brand-600 md:mt-7"
