@@ -6,7 +6,7 @@ heroSubtitle: IDCTE is a human rights organization advocating internationally
   recognition of the Tamil genocide.
 heroImage: /images/photos/Brussels-hero.jpg
 stat1Value: "2021"
-stat1Label: Founded in Europe by Eelam Tamil youth
+stat1Label: Founded in Europe by Eelam Tamil youths
 stat2Value: 100+
 stat2Label: Advocacy meetings conducted
 ---
