@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import { Blog8 } from "@/components/blocks/blog8";
+import SectionHeading from "@/components/SectionHeading";
+import BlogGrid from "@/components/BlogGrid";
 import { getAllBlogPosts } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
 import { formatPostDate } from "@/lib/format";
@@ -31,19 +32,27 @@ export default async function BlogPage() {
   return (
     <>
       <PageHero title={c.title} subtitle={c.subtitle} />
-      <Blog8
-        eyebrow={t(locale, "from_the_team")}
-        heading={t(locale, "latest_posts")}
-        locale={locale}
-        posts={posts.map((post) => ({
-          id: post.slug,
-          title: post.title,
-          summary: post.summary,
-          published: formatPostDate(post.date, locale),
-          url: `/blog/${post.slug}`,
-          image: post.image ?? "/images/photos/IDCTE-speaking-at-conference.jpg",
-        }))}
-      />
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow={t(locale, "from_the_team")}
+            title={t(locale, "latest_posts")}
+          />
+          <div className="mt-12">
+            <BlogGrid
+              locale={locale}
+              posts={posts.map((post) => ({
+                slug: post.slug,
+                title: post.title,
+                published: formatPostDate(post.date, locale),
+                image:
+                  post.image ?? "/images/photos/IDCTE-speaking-at-conference.jpg",
+                pressRelease: post.pressRelease,
+              }))}
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

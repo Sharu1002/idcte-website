@@ -155,6 +155,7 @@ export type BlogPost = {
   date: string;
   summary: string;
   image?: string;
+  pressRelease: boolean;
   photos: PostPhoto[];
   content: string;
 };
@@ -182,6 +183,7 @@ export function getAllBlogPosts(locale: Locale = "en"): BlogPost[] {
         date: toDateString(item.data.date),
         summary: item.data.summary as string,
         image: item.data.image as string | undefined,
+        pressRelease: item.data.pressRelease === true,
         photos: own.length > 0 ? own : fallbackPhotos?.get(item.slug) ?? [],
         content: item.content,
       };

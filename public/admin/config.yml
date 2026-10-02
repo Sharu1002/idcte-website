@@ -94,6 +94,7 @@ collections:
         time_format: false
         format: "YYYY-MM-DD"
       - { label: "Summary (shown on the blog list card)", name: "summary", widget: "text" }
+      - { label: "Press release", name: "pressRelease", widget: "boolean", default: false, required: false }
       - { label: "Main Image", name: "image", widget: "image", required: false }
       - label: "Photos (adds a gallery at the end of the post)"
         name: "photos"
@@ -202,6 +203,7 @@ collections:
         time_format: false
         format: "YYYY-MM-DD"
       - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Press release", name: "pressRelease", widget: "boolean", default: false, required: false }
       - { label: "Main Image", name: "image", widget: "image", required: false }
       - label: "Photos (adds a gallery at the end of the post)"
         name: "photos"
