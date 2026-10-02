@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import PhotoGallery from "@/components/PhotoGallery";
+import PhotoGrid from "@/components/PhotoGrid";
 import { getGalleryPhotos } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
 import { t } from "@/lib/i18n";
@@ -21,8 +21,8 @@ export default async function GalleryPage() {
         title={t(locale, "gallery_title")}
         subtitle={t(locale, "gallery_subtitle")}
       />
-      <section className="py-16 sm:py-20">
-        <PhotoGallery photos={photos} />
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <PhotoGrid photos={photos} />
       </section>
     </>
   );

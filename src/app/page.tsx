@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import StatStrip from "@/components/StatStrip";
 import PillarFeatures from "@/components/PillarFeatures";
-import PhotoGallery from "@/components/PhotoGallery";
+import PhotoGrid from "@/components/PhotoGrid";
 import Button from "@/components/Button";
 import { getPage, getPillars, getGalleryPhotos } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
@@ -66,14 +66,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow={t(locale, "on_the_ground")} title={t(locale, "our_advocacy_in_field")} />
-        </div>
+      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <SectionHeading eyebrow={t(locale, "on_the_ground")} title={t(locale, "our_advocacy_in_field")} />
         <div className="mt-12">
-          <PhotoGallery photos={galleryPreview} />
+          <PhotoGrid photos={galleryPreview} />
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Button href="/gallery" variant="outline">
             {t(locale, "view_full_gallery")}
           </Button>
