@@ -32,9 +32,12 @@ export default async function GetInvolvedPage() {
       <section className="border-t border-brand-900/15 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow={t(locale, "ways_to_help")} title={t(locale, "how_you_can_get_involved")} />
-          <div className="mt-10 grid gap-px bg-brand-900/15 sm:grid-cols-2">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {ways.map((way) => (
-              <div key={way.title} className="bg-white p-7">
+              <div
+                key={way.title}
+                className="border border-brand-900/15 p-7 transition-colors hover:border-brand-500"
+              >
                 <h3 className="text-lg font-semibold text-brand-900">
                   {way.title}
                 </h3>

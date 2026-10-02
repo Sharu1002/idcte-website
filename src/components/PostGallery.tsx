@@ -16,7 +16,7 @@ export default function PostGallery({ photos }: { photos: PostPhoto[] }) {
   const single = photos.length === 1;
 
   return (
-    <div className={`grid gap-px bg-brand-900/10 ${columnsFor(photos.length)}`}>
+    <div className={`grid gap-x-6 gap-y-8 ${columnsFor(photos.length)}`}>
       {photos.map((photo, i) => (
         <figure key={`${photo.src}-${i}`}>
           <div
@@ -29,11 +29,11 @@ export default function PostGallery({ photos }: { photos: PostPhoto[] }) {
               alt={photo.caption ?? ""}
               fill
               sizes={single ? "(min-width: 640px) 768px, 100vw" : "(min-width: 640px) 50vw, 100vw"}
-              className="object-cover"
+              className="object-cover object-[center_30%]"
             />
           </div>
           {photo.caption && (
-            <figcaption className="bg-brand-900 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-white/80">
+            <figcaption className="mt-3 text-sm leading-relaxed text-slate-600">
               {photo.caption}
             </figcaption>
           )}
