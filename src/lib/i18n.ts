@@ -30,7 +30,7 @@ const dictionary = {
     stay_up_to_date: "Stay Up To Date",
     two_pillars_one_goal: "Two Pillars, One Goal",
     two_pillars_subtitle:
-      "Everything IDCTE does falls under advocacy and knowledge mobilization.",
+      "Advocacy and knowledge mobilization serve one goal: justice and accountability for the Tamil genocide, and self-determination for the Eelam Tamil nation.",
     voice_can_make_difference: "Your Voice Can Make a Difference",
     cta_join_cause:
       "Join our cause and become part of the change for Tamileelam.",
