@@ -27,7 +27,7 @@ export default function AchievementGrid({ items }: { items: Achievement[] }) {
         return (
           <div
             key={item.title}
-            className="flex flex-col border border-brand-900/15 p-7 transition-colors hover:border-brand-500"
+            className="flex flex-col border-2 border-brand-900/20 p-7 transition-colors hover:border-brand-500"
           >
             <div className="flex size-11 items-center justify-center rounded-full bg-brand-500">
               <Icon className="size-5 text-white" strokeWidth={1.75} />

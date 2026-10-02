@@ -36,7 +36,7 @@ export default async function GetInvolvedPage() {
             {ways.map((way) => (
               <div
                 key={way.title}
-                className="border border-brand-900/15 p-7 transition-colors hover:border-brand-500"
+                className="border-2 border-brand-900/20 p-7 transition-colors hover:border-brand-500"
               >
                 <h3 className="text-lg font-semibold text-brand-900">
                   {way.title}
