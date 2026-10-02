@@ -46,6 +46,7 @@ export function getPillars(locale: Locale = "en"): Pillar[] {
 }
 
 export type Achievement = {
+  icon?: string;
   title: string;
   description: string;
 };

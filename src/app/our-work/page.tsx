@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import MarkdownBody from "@/components/MarkdownBody";
+import AchievementGrid from "@/components/AchievementGrid";
 import Button from "@/components/Button";
 import { getPage, getPillars, getAchievements } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
@@ -53,17 +54,8 @@ export default async function OurWorkPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeading eyebrow={t(locale, "impact")} title={page.data.achievementsTitle} align="center" />
-        <div className="mt-12 grid gap-px bg-brand-900/15 sm:grid-cols-2 lg:grid-cols-3">
-          {achievements.map((item) => (
-            <div key={item.title} className="bg-white p-7">
-              <h3 className="text-base font-semibold text-brand-900">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                {item.description}
-              </p>
-            </div>
-          ))}
+        <div className="mt-12">
+          <AchievementGrid items={achievements} />
         </div>
       </section>
 
