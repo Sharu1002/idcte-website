@@ -67,6 +67,7 @@ const dictionary = {
     photos: "Photos",
     view_all: "View all",
     press_release: "Press release",
+    start_here: "Start here",
     language_toggle_label: "தமிழ்",
   },
   ta: {
@@ -133,6 +134,7 @@ const dictionary = {
     photos: "படங்கள்",
     view_all: "அனைத்தும்",
     press_release: "ஊடக அறிக்கை",
+    start_here: "இங்கிருந்து தொடங்குங்கள்",
     language_toggle_label: "English",
   },
 } as const;

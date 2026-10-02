@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import LearnMoreCard from "@/components/LearnMoreCard";
+import LearnMoreGrid from "@/components/LearnMoreGrid";
 import { getAllLearnMore } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
 
@@ -31,12 +31,8 @@ export default async function LearnMorePage() {
   return (
     <>
       <PageHero title={c.title} subtitle={c.subtitle} />
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {topics.map((topic) => (
-            <LearnMoreCard key={topic.slug} topic={topic} />
-          ))}
-        </div>
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <LearnMoreGrid topics={topics} locale={locale} />
       </section>
     </>
   );
