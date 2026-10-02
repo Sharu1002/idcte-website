@@ -16,7 +16,6 @@
     { "label": "About", "href": "/about" },
     { "label": "Our Work", "href": "/our-work" },
     { "label": "Learn More", "href": "/learn-more" },
-    { "label": "News & Press", "href": "/news" },
     { "label": "Blog", "href": "/blog" },
     { "label": "Get Involved", "href": "/get-involved" },
     { "label": "Contact", "href": "/contact" }

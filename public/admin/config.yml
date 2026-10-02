@@ -104,28 +104,6 @@ collections:
           - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "news"
-    label: "News & Press (English)"
-    folder: "content/news"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    filter: { field: "lang", value: "en" }
-    summary: "{{title}} — {{date}}"
-    sortable_fields: ["date", "title"]
-    fields:
-      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
-      - { label: "Title", name: "title", widget: "string" }
-      - label: "Published Date"
-        name: "date"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        format: "YYYY-MM-DD"
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Image (optional)", name: "image", widget: "image", required: false }
-      - { label: "PDF (optional)", name: "pdf", widget: "file", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
-
   - name: "learn-more"
     label: "Learn More (English)"
     folder: "content/learn-more"
@@ -232,28 +210,6 @@ collections:
         fields:
           - { label: "Photo", name: "src", widget: "image" }
           - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "news_ta"
-    label: "செய்தி & அறிக்கைகள் (Tamil)"
-    folder: "content/news"
-    create: true
-    extension: "ta.md"
-    format: "yaml-frontmatter"
-    filter: { field: "lang", value: "ta" }
-    summary: "{{title}} — {{date}}"
-    fields:
-      - { label: "Language", name: "lang", widget: "hidden", default: "ta" }
-      - { label: "Title", name: "title", widget: "string" }
-      - label: "Published Date"
-        name: "date"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        format: "YYYY-MM-DD"
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Image (optional)", name: "image", widget: "image", required: false }
-      - { label: "PDF (optional)", name: "pdf", widget: "file", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "learn-more_ta"

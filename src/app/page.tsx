@@ -2,10 +2,9 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import StatStrip from "@/components/StatStrip";
 import PillarFeatures from "@/components/PillarFeatures";
-import NewsCard from "@/components/NewsCard";
 import PhotoGallery from "@/components/PhotoGallery";
 import Button from "@/components/Button";
-import { getPage, getPillars, getAllNews, getGalleryPhotos } from "@/lib/content";
+import { getPage, getPillars, getGalleryPhotos } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
 import { t } from "@/lib/i18n";
 
@@ -13,7 +12,6 @@ export default async function HomePage() {
   const locale = await getLocale();
   const page = getPage("home", locale);
   const pillars = getPillars(locale);
-  const news = getAllNews(locale).slice(0, 3);
   const galleryPreview = getGalleryPhotos(locale).slice(0, 6);
 
   return (
@@ -79,22 +77,6 @@ export default async function HomePage() {
           <Button href="/gallery" variant="outline">
             {t(locale, "view_full_gallery")}
           </Button>
-        </div>
-      </section>
-
-      <section className="bg-brand-50/40 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow={t(locale, "news_press")} title={t(locale, "stay_up_to_date")} />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {news.map((item) => (
-              <NewsCard key={item.slug} item={item} locale={locale} />
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Button href="/news" variant="outline">
-              {t(locale, "view_all_news")}
-            </Button>
-          </div>
         </div>
       </section>
 

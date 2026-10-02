@@ -98,11 +98,6 @@ export default function Footer({
                   {t(locale, "learn_more")}
                 </Link>
               </li>
-              <li>
-                <Link href="/news" className="hover:text-white">
-                  {t(locale, "news_press")}
-                </Link>
-              </li>
             </ul>
           </div>
 

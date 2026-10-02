@@ -119,16 +119,6 @@ export function getPage(slug: string, locale: Locale = "en"): PageContent {
   return { slug, data: data as Record<string, string>, content };
 }
 
-export type NewsItem = {
-  slug: string;
-  title: string;
-  date: string;
-  summary: string;
-  pdf?: string;
-  image?: string;
-  content: string;
-};
-
 function readCollection(dirName: string, locale: Locale = "en") {
   const dir = path.join(CONTENT_DIR, dirName);
   const files = fs.existsSync(dir)
@@ -143,27 +133,6 @@ function readCollection(dirName: string, locale: Locale = "en") {
     const { data, content } = matter(raw);
     return { slug, data, content };
   });
-}
-
-export function getAllNews(locale: Locale = "en"): NewsItem[] {
-  return readCollection("news", locale)
-    .map((item) => ({
-      slug: item.slug,
-      title: item.data.title as string,
-      date: toDateString(item.data.date),
-      summary: item.data.summary as string,
-      pdf: item.data.pdf as string | undefined,
-      image: item.data.image as string | undefined,
-      content: item.content,
-    }))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-}
-
-export function getNewsBySlug(
-  slug: string,
-  locale: Locale = "en"
-): NewsItem | undefined {
-  return getAllNews(locale).find((n) => n.slug === slug);
 }
 
 // The CMS writes dates unquoted (`date: 2025-11-03`), which YAML parses into a

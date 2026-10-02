@@ -16,7 +16,6 @@
     { "label": "எங்களைப் பற்றி", "href": "/about" },
     { "label": "எங்கள் பணி", "href": "/our-work" },
     { "label": "மேலும் அறிய", "href": "/learn-more" },
-    { "label": "செய்தி & அறிக்கைகள்", "href": "/news" },
     { "label": "வலைப்பதிவு", "href": "/blog" },
     { "label": "இணைந்திடுங்கள்", "href": "/get-involved" },
     { "label": "தொடர்பு", "href": "/contact" }
