@@ -29,19 +29,23 @@ export default async function GetInvolvedPage() {
         <MarkdownBody content={page.content} />
       </section>
 
-      <section className="border-t border-brand-900/15 py-16">
+      <section className="bg-brand-900 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow={t(locale, "ways_to_help")} title={t(locale, "how_you_can_get_involved")} />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <SectionHeading
+            eyebrow={t(locale, "ways_to_help")}
+            title={t(locale, "how_you_can_get_involved")}
+            light
+          />
+          {/* Hairline rules between the columns, as in the reference. They sit
+              on the dividers rather than around each item, so the four points
+              read as one row rather than four separate boxes. */}
+          <div className="mt-14 grid gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0 lg:divide-x lg:divide-white/20">
             {ways.map((way) => (
-              <div
-                key={way.title}
-                className="border-2 border-brand-900/20 p-7 transition-colors hover:border-brand-500"
-              >
-                <h3 className="text-lg font-semibold text-brand-900">
+              <div key={way.title} className="px-0 text-center lg:px-8">
+                <h3 className="text-xl font-semibold leading-snug text-white">
                   {way.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/70">
                   {way.description}
                 </p>
               </div>
