@@ -4,10 +4,8 @@ import SectionHeading from "@/components/SectionHeading";
 import MarkdownBody from "@/components/MarkdownBody";
 import Image from "next/image";
 import AdvocacyReachList from "@/components/AdvocacyReach";
-import Button from "@/components/Button";
 import { getPage, getAdvocacyReach } from "@/lib/content";
 import { getLocale } from "@/lib/locale-server";
-import { t } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "About",
@@ -72,16 +70,27 @@ export default async function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow={c.fieldEyebrow} title={c.fieldTitle} />
 
-          <div className="mt-12 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-            {/* Captions are dropped in this pairing: at half width in a 2x2 the
-                photos are evidence for the list beside them, and four captions
-                would compete with the four points for the same attention. The
-                full captioned set stays on the gallery page. */}
-            <div className="grid grid-cols-2 gap-4">
+          {/* Five columns rather than six: the photos take three of them so a
+              3x2 block keeps each frame big enough to read faces, while the
+              list still gets a comfortable measure in the remaining two. */}
+          <div className="mt-12 grid items-start gap-10 lg:grid-cols-5 lg:gap-16">
+            {/* Captions are dropped in this pairing: the photos are evidence
+                for the list beside them, and six captions would compete with
+                the points for the same attention. The full captioned set
+                stays on the gallery page. */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:col-span-3">
               {[
                 {
                   src: "/images/photos/With-MEP.jpg",
                   alt: "IDCTE representatives with a Member of the European Parliament",
+                },
+                {
+                  src: "/images/photos/IDCTE-Strasbourg.jpg",
+                  alt: "IDCTE at the European Parliament in Strasbourg",
+                },
+                {
+                  src: "/images/photos/IDCTE-Norwegian-MP.JPG",
+                  alt: "IDCTE meeting a Member of the Norwegian Parliament",
                 },
                 {
                   src: "/images/photos/IDCTE-speaking-conference.jpg",
@@ -104,24 +113,19 @@ export default async function AboutPage() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
-                    sizes="(min-width: 1024px) 25vw, 50vw"
+                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 30vw, 50vw"
                     className="object-cover object-[center_30%]"
                   />
                 </div>
               ))}
             </div>
 
-            <div>
+            <div className="lg:col-span-2">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-600">
                 {c.reachTitle}
               </h3>
               <div className="mt-6">
                 <AdvocacyReachList items={reach} />
-              </div>
-              <div className="mt-10">
-                <Button href="/gallery" variant="outline">
-                  {t(locale, "view_full_gallery")}
-                </Button>
               </div>
             </div>
           </div>
