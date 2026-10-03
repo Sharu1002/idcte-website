@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import MarkdownBody from "@/components/MarkdownBody";
-import PhotoGrid from "@/components/PhotoGrid";
+import Image from "next/image";
 import AdvocacyReachList from "@/components/AdvocacyReach";
 import Button from "@/components/Button";
 import { getPage, getAdvocacyReach } from "@/lib/content";
@@ -18,23 +18,15 @@ export const metadata: Metadata = {
 const copy = {
   en: {
     whyEyebrow: "Why We Exist",
-    reachEyebrow: "Our Advocacy",
     reachTitle: "Where we've engaged",
     fieldEyebrow: "In the Field",
     fieldTitle: "Meeting policymakers where decisions are made",
-    captionMep: "With a Member of the European Parliament",
-    captionConference: "Speaking at an international conference",
-    captionBrussels: "IDCTE delegation — Brussels",
   },
   ta: {
     whyEyebrow: "நாங்கள் ஏன் இருக்கிறோம்",
-    reachEyebrow: "எங்கள் வக்காலத்து",
     reachTitle: "நாங்கள் ஈடுபட்டுள்ள இடங்கள்",
     fieldEyebrow: "களப் பணியில்",
     fieldTitle: "முடிவுகள் எடுக்கப்படும் இடங்களில் கொள்கை வகுப்பாளர்களைச் சந்தித்தல்",
-    captionMep: "ஐரோப்பிய பாராளுமன்ற உறுப்பினர் ஒருவருடன்",
-    captionConference: "சர்வதேச மாநாட்டில் உரையாற்றுதல்",
-    captionBrussels: "IDCTE குழு — பிரஸ்ஸல்ஸ்",
   },
 } as const;
 
@@ -78,40 +70,61 @@ export default async function AboutPage() {
 
       <section className="border-t border-brand-900/15 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow={c.reachEyebrow} title={c.reachTitle} />
-          <div className="mt-12">
-            <AdvocacyReachList items={reach} />
-          </div>
-        </div>
-      </section>
+          <SectionHeading eyebrow={c.fieldEyebrow} title={c.fieldTitle} />
 
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow={c.fieldEyebrow} title={c.fieldTitle} />
-        <div className="mt-10">
-          <PhotoGrid
-            photos={[
-              {
-                src: "/images/photos/With-MEP.jpg",
-                alt: "IDCTE representatives with a Member of the European Parliament",
-                caption: c.captionMep,
-              },
-              {
-                src: "/images/photos/IDCTE-speaking-conference.jpg",
-                alt: "IDCTE speaking at an international conference",
-                caption: c.captionConference,
-              },
-              {
-                src: "/images/photos/IDCTE-Brussels.jpg",
-                alt: "IDCTE delegation in Brussels",
-                caption: c.captionBrussels,
-              },
-            ]}
-          />
-        </div>
-        <div className="mt-10 text-center">
-          <Button href="/gallery" variant="outline">
-            {t(locale, "view_full_gallery")}
-          </Button>
+          <div className="mt-12 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+            {/* Captions are dropped in this pairing: at half width in a 2x2 the
+                photos are evidence for the list beside them, and four captions
+                would compete with the four points for the same attention. The
+                full captioned set stays on the gallery page. */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                {
+                  src: "/images/photos/With-MEP.jpg",
+                  alt: "IDCTE representatives with a Member of the European Parliament",
+                },
+                {
+                  src: "/images/photos/IDCTE-speaking-conference.jpg",
+                  alt: "IDCTE speaking at an international conference",
+                },
+                {
+                  src: "/images/photos/IDCTE-austria-mfa.JPG",
+                  alt: "IDCTE at the Austrian Federal Ministry for European and International Affairs",
+                },
+                {
+                  src: "/images/photos/IDCTE-Brussels.jpg",
+                  alt: "IDCTE delegation in Brussels",
+                },
+              ].map((photo) => (
+                <div
+                  key={photo.src}
+                  className="relative aspect-[4/3] overflow-hidden bg-slate-100"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                    className="object-cover object-[center_30%]"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-600">
+                {c.reachTitle}
+              </h3>
+              <div className="mt-6">
+                <AdvocacyReachList items={reach} />
+              </div>
+              <div className="mt-10">
+                <Button href="/gallery" variant="outline">
+                  {t(locale, "view_full_gallery")}
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>
