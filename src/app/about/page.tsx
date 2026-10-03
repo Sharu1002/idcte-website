@@ -121,7 +121,7 @@ export default async function AboutPage() {
             </div>
 
             <div className="lg:col-span-2">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-600">
+              <h3 className="text-base font-semibold uppercase tracking-wider text-brand-600">
                 {c.reachTitle}
               </h3>
               <div className="mt-6">
