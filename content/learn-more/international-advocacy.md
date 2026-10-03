@@ -1,6 +1,6 @@
 ---
 title: "International Advocacy & Accountability"
-teaser: "How IDCTE engages the UN, EU, and governments worldwide to press for accountability."
+teaser: "How IDCTE engages the UN, EU, and governments worldwide — including the call to suspend Sri Lanka's GSP+ trade privileges."
 order: 7
 lang: "en"
 ---
