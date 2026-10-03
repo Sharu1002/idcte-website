@@ -67,7 +67,6 @@ export function getMilestones(locale: Locale = "en"): Milestone[] {
 
 export type AdvocacyReach = {
   label: string;
-  note: string;
 };
 
 export function getAdvocacyReach(locale: Locale = "en"): AdvocacyReach[] {
