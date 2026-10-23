@@ -21,8 +21,8 @@ IDCTE is a dedicated human rights organization that continuously and tirelessly 
 
 ## Our Primary Goal
 
-Eelam Tamils have faced, and continue to face, genocide in Tamil Eelam by the occupying Sri Lankan state. The Sri Lankan state has carried out genocide against Eelam Tamils since 1948, with the genocide reaching its peak in 2009 — killing tens of thousands of Eelam Tamils in the final days of the armed conflict and leaving at least 146,679 Eelam Tamils unaccounted for. Today we face structural genocide, with the intention of erasing our identity, culture, and literature.
+Eelam Tamils have faced genocide in Tamil Eelam at the hands of the occupying Sri Lankan state since 1948. It reached its peak in 2009 — tens of thousands killed in the final days of the armed conflict, and at least 146,679 people still unaccounted for. What we face today is structural: a sustained effort to erase Tamil identity, culture, and literature.
 
-Our primary objective is to raise awareness about the Tamil genocide committed against Eelam Tamils by the Sri Lankan state. We aim to shed light on the mass atrocities and injustices endured by our people, ensuring their stories are heard by the international community. By bringing attention to the Tamil genocide, we seek to create a sense of urgency and drive concrete action for accountability and justice.
+Our primary objective is to ensure this is neither forgotten nor denied. We document what was done and what is still being done, and we carry that evidence to the institutions with the power to act — so that recognition of the genocide is followed by accountability, and accountability by consequence.
 
-Moreover, we advocate for a political solution that addresses the Tamil nation's political aspirations, based on our right to self-determination in Tamil Eelam.
+Awareness alone is not the goal. We advocate for a political solution that answers the aspirations of the Tamil nation, grounded in our right to self-determination in Tamil Eelam.
