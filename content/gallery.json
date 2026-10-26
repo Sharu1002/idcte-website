@@ -2,27 +2,33 @@
   "items": [
     {
       "src": "/images/photos/IDCTE-brussels-MEP.jpg",
-      "caption": "Meeting with a Member of the European Parliament — Brussels"
+      "caption": "Meeting with a Member of the European Parliament — Brussels",
+      "focus": "center 55%"
     },
     {
       "src": "/images/photos/With-MEP.jpg",
-      "caption": "With a Member of the European Parliament"
+      "caption": "With a Member of the European Parliament",
+      "focus": "center 45%"
     },
     {
       "src": "/images/photos/IDCTE-Strasbourg.jpg",
-      "caption": "European Parliament — Strasbourg"
+      "caption": "European Parliament — Strasbourg",
+      "focus": "center 50%"
     },
     {
       "src": "/images/photos/IDCTE-in-Brussels.JPG",
-      "caption": "IDCTE delegation outside the European Parliament — Brussels"
+      "caption": "IDCTE delegation outside the European Parliament — Brussels",
+      "focus": "center 58%"
     },
     {
       "src": "/images/photos/IDCTE-Norwegian-MP.JPG",
-      "caption": "Meeting with a Norwegian Member of Parliament"
+      "caption": "Meeting with a Norwegian Member of Parliament",
+      "focus": "center 42%"
     },
     {
       "src": "/images/photos/IDCTE-austria-mfa.JPG",
-      "caption": "Austrian Federal Ministry for European and International Affairs"
+      "caption": "Austrian Federal Ministry for European and International Affairs",
+      "focus": "center 60%"
     },
     {
       "src": "/images/photos/IDCTE-speaking-conference.jpg",

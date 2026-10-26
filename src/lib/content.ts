@@ -85,6 +85,8 @@ export function getWaysToHelp(locale: Locale = "en"): WaysToHelp[] {
 export type GalleryPhoto = {
   src: string;
   caption: string;
+  /** CSS object-position for the crop, e.g. "center 55%". */
+  focus?: string;
 };
 
 export function getGalleryPhotos(locale: Locale = "en"): GalleryPhoto[] {

@@ -2,19 +2,23 @@
   "items": [
     {
       "src": "/images/photos/IDCTE-brussels-MEP.jpg",
-      "caption": "ஐரோப்பிய பாராளுமன்ற உறுப்பினர் ஒருவருடன் சந்திப்பு — பிரஸ்ஸல்ஸ்"
+      "caption": "ஐரோப்பிய பாராளுமன்ற உறுப்பினர் ஒருவருடன் சந்திப்பு — பிரஸ்ஸல்ஸ்",
+      "focus": "center 55%"
     },
     {
       "src": "/images/photos/With-MEP.jpg",
-      "caption": "ஐரோப்பிய பாராளுமன்ற உறுப்பினர் ஒருவருடன்"
+      "caption": "ஐரோப்பிய பாராளுமன்ற உறுப்பினர் ஒருவருடன்",
+      "focus": "center 45%"
     },
     {
       "src": "/images/photos/IDCTE-Strasbourg.jpg",
-      "caption": "ஐரோப்பிய பாராளுமன்றம் — ஸ்ட்ராஸ்பர்க்"
+      "caption": "ஐரோப்பிய பாராளுமன்றம் — ஸ்ட்ராஸ்பர்க்",
+      "focus": "center 50%"
     },
     {
       "src": "/images/photos/IDCTE-in-Brussels.JPG",
-      "caption": "ஐரோப்பிய பாராளுமன்றத்திற்கு வெளியே IDCTE குழு — பிரஸ்ஸல்ஸ்"
+      "caption": "ஐரோப்பிய பாராளுமன்றத்திற்கு வெளியே IDCTE குழு — பிரஸ்ஸல்ஸ்",
+      "focus": "center 58%"
     },
     {
       "src": "/images/photos/IDCTE-Brussels.jpg",
@@ -22,11 +26,13 @@
     },
     {
       "src": "/images/photos/IDCTE-Norwegian-MP.JPG",
-      "caption": "நோர்வே பாராளுமன்ற உறுப்பினர் ஒருவருடன் சந்திப்பு"
+      "caption": "நோர்வே பாராளுமன்ற உறுப்பினர் ஒருவருடன் சந்திப்பு",
+      "focus": "center 42%"
     },
     {
       "src": "/images/photos/IDCTE-austria-mfa.JPG",
-      "caption": "ஆஸ்திரிய கூட்டாட்சி ஐரோப்பிய மற்றும் சர்வதேச விவகார அமைச்சகம்"
+      "caption": "ஆஸ்திரிய கூட்டாட்சி ஐரோப்பிய மற்றும் சர்வதேச விவகார அமைச்சகம்",
+      "focus": "center 60%"
     },
     {
       "src": "/images/photos/IDCTE-speaking-conference.jpg",

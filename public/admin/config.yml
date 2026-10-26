@@ -385,6 +385,7 @@ collections:
             fields:
               - { label: "Photo", name: "src", widget: "image" }
               - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Crop focus", name: "focus", widget: "string", required: false, hint: "Which part of the photo to keep when cropped. e.g. 'center 60%' pulls the crop down, 'center 30%' pulls it up. Leave blank for the default." }
 
       - file: "content/gallery.ta.json"
         label: "Photo Gallery (Tamil captions)"
@@ -396,6 +397,7 @@ collections:
             fields:
               - { label: "Photo", name: "src", widget: "image" }
               - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Crop focus", name: "focus", widget: "string", required: false, hint: "Which part of the photo to keep when cropped. e.g. 'center 60%' pulls the crop down, 'center 30%' pulls it up. Leave blank for the default." }
 
       - file: "content/thuyilum-illam.json"
         label: "Thuyilum Illam Sites (English)"
