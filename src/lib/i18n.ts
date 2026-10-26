@@ -31,6 +31,8 @@ const dictionary = {
       "Join our cause and become part of the change for Tamileelam.",
     a_voice_for_the_nation: "A Voice for the Eelam Tamil Nation",
     our_advocacy_in_field: "Our Advocacy in the Field",
+    advocacy_field_intro:
+      "From committee rooms in Brussels to ministries in Vienna, IDCTE takes the case for Eelam Tamils directly to the people who decide.",
     from_the_team: "From the Team",
     latest_posts: "Latest Posts",
     impact: "Impact",
@@ -98,6 +100,8 @@ const dictionary = {
       "எங்கள் இயக்கத்தில் இணைந்து தமிழீழத்திற்கான மாற்றத்தின் ஒரு பகுதியாக இருங்கள்.",
     a_voice_for_the_nation: "ஈழத் தமிழ் தேசத்தின் குரல்",
     our_advocacy_in_field: "எங்கள் களப் பணிகள்",
+    advocacy_field_intro:
+      "பிரஸ்ஸல்ஸின் குழுக் கூடங்கள் முதல் வியன்னாவின் அமைச்சகங்கள் வரை, ஈழத் தமிழருக்கான வாதத்தை முடிவெடுப்பவர்களிடம் IDCTE நேரடியாக எடுத்துச் செல்கிறது.",
     from_the_team: "குழுவிடமிருந்து",
     latest_posts: "புதிய பதிவுகள்",
     impact: "சாதனைகள்",

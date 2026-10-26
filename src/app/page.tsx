@@ -67,14 +67,26 @@ export default async function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow={t(locale, "on_the_ground")} title={t(locale, "our_advocacy_in_field")} />
-        <div className="mt-12">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* The gallery beside this runs taller than the viewport, so the
+              text sticks rather than floating in the middle of a tall column
+              with dead space above and below it. */}
+          <div className="lg:sticky lg:top-32">
+            <SectionHeading
+              eyebrow={t(locale, "on_the_ground")}
+              title={t(locale, "our_advocacy_in_field")}
+              align="left"
+            />
+            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+              {t(locale, "advocacy_field_intro")}
+            </p>
+            <div className="mt-8">
+              <Button href="/gallery" variant="outline">
+                {t(locale, "view_full_gallery")}
+              </Button>
+            </div>
+          </div>
           <GalleryStaggerGrid photos={galleryPreview} />
-        </div>
-        <div className="mt-12 text-center">
-          <Button href="/gallery" variant="outline">
-            {t(locale, "view_full_gallery")}
-          </Button>
         </div>
       </section>
 

@@ -36,17 +36,16 @@ export default function GalleryStaggerGrid({ photos }: { photos: GridPhoto[] }) 
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       transition={{ staggerChildren: 0.12, delayChildren: 0.1 }}
-      className="stagger-grid grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+      className="stagger-grid grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2"
     >
         {photos.map((photo, index) => (
         <motion.figure
           key={photo.src}
           variants={reduceMotion ? undefined : cellVariants}
           transition={SPRING_TRANSITION_CONFIG}
-          // Drops the middle column by a step so the row reads as a stagger
-          // rather than a filing cabinet. Only at lg, where there are three
-          // columns to stagger against.
-          className={index % 3 === 1 ? "lg:mt-16" : undefined}
+          // Right-hand column drops a step, so the two columns interlock
+          // instead of lining up — the stagger from the reference layout.
+          className={index % 2 === 1 ? "sm:mt-12" : undefined}
         >
           <div className="relative aspect-[3/2] overflow-hidden rounded-xl bg-slate-100 shadow-lg">
             <Image
