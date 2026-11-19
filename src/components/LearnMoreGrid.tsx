@@ -20,23 +20,27 @@ export default function LearnMoreGrid({
 }) {
   const [first, ...rest] = topics;
   if (!first) return null;
+  // A single topic is not a sequence, so it gets no number or "start here".
+  const single = rest.length === 0;
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
       <Link
         href={`/learn-more/${first.slug}`}
-        className="group flex flex-col justify-between bg-brand-900 p-8 transition-colors hover:bg-brand-800 sm:p-10 lg:col-span-2"
+        className={`group flex flex-col justify-between bg-brand-900 p-8 transition-colors hover:bg-brand-800 sm:p-10 ${single ? "lg:col-span-3" : "lg:col-span-2"}`}
       >
         <div>
-          <div className="flex items-baseline gap-4">
-            <span className="font-display text-3xl leading-none text-brand-400">
-              {num(0)}
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-wider text-brand-300">
-              {t(locale, "start_here")}
-            </span>
-          </div>
-          <h3 className="mt-6 font-display text-3xl uppercase leading-[0.95] text-white sm:text-4xl">
+          {!single && (
+            <div className="mb-6 flex items-baseline gap-4">
+              <span className="font-display text-3xl leading-none text-brand-400">
+                {num(0)}
+              </span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand-300">
+                {t(locale, "start_here")}
+              </span>
+            </div>
+          )}
+          <h3 className="font-display text-3xl uppercase leading-[0.95] text-white sm:text-4xl">
             {first.title}
           </h3>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75">

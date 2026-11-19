@@ -8,4 +8,4 @@ lang: "en"
 
 IDCTE has documented this destruction using satellite imagery, comparing each site before and after the occupation. The comparisons below show organized burial grounds — visible as neat rows of headstones — reduced to cleared, empty land. Drag the slider on each image to compare.
 
-We view this destruction as part of a broader pattern: the erasure of Tamil memory and identity alongside continued restrictions on the right to mourn and commemorate. Read more about this pattern in [The Tamil Genocide](/learn-more/the-tamil-genocide) and [International Advocacy & Accountability](/learn-more/international-advocacy).
+We view this destruction as part of a broader pattern: the erasure of Tamil memory and identity alongside continued restrictions on the right to mourn and commemorate.

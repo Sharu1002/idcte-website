@@ -18,5 +18,3 @@ IDCTE's position is that decades of structural discrimination, the 2009 mass atr
 ## What This Means for Our Advocacy
 
 This is why IDCTE frames its political ask carefully: not as a request for minority protections within the existing Sri Lankan state, but as a call to recognize the Tamil nation's right to determine its own political future. It's a distinction that shapes every meeting we have with foreign ministries and international institutions.
-
-*Learn more about this in our [Learn More](/learn-more/self-determination) section.*
