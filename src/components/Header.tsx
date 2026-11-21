@@ -24,10 +24,10 @@ export default function Header({
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
-            src="/images/brand/idcte-mark.png"
+            src="/images/brand/idcte-logo.png"
             alt={site.orgName}
-            width={222}
-            height={222}
+            width={220}
+            height={47}
             priority
             className="h-10 w-auto sm:h-11"
           />

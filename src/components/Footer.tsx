@@ -36,10 +36,10 @@ export default function Footer({
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Image
-              src="/images/brand/idcte-mark-white.png"
+              src="/images/brand/idcte-logo-white.png"
               alt={site.orgName}
-              width={222}
-              height={222}
+              width={220}
+              height={47}
               className="h-10 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
