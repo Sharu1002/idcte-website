@@ -48,6 +48,15 @@ export default async function GetInvolvedPage() {
                 <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/70">
                   {way.description}
                 </p>
+                {way.href && (
+                  <div className="mt-6">
+                    <Button href={way.href} variant="ghost-light">
+                      {way.href === "/donate"
+                        ? t(locale, "donate")
+                        : t(locale, "learn_more")}
+                    </Button>
+                  </div>
+                )}
               </div>
             ))}
           </div>

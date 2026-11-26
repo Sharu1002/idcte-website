@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const copy = {
   en: {
     whyEyebrow: "Why We Exist",
-    reachTitle: "Where we've engaged",
+    reachTitle: "Where we take our case",
     fieldEyebrow: "In the Field",
     fieldTitle: "Meeting policymakers where decisions are made",
   },

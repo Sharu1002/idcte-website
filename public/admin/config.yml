@@ -363,6 +363,7 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link (optional)", name: "href", widget: "string", required: false }
 
       - file: "content/ways-to-help.ta.json"
         label: "Ways to Help (Tamil)"
@@ -374,6 +375,7 @@ collections:
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link (optional)", name: "href", widget: "string", required: false }
 
       - file: "content/gallery.json"
         label: "Photo Gallery (English)"

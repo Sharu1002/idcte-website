@@ -2,19 +2,20 @@
   "items": [
     {
       "title": "Volunteer",
-      "description": "Join our team of youth activists and volunteers working on advocacy, research, and campaigns. We welcome skills in writing, design, translation, event organizing, and outreach."
+      "description": "Join our team of young advocates working on diplomacy, research and campaigns. We need writers, designers, translators, researchers and event organizers, and people ready to engage their own elected representatives."
     },
     {
       "title": "Raise Your Voice",
-      "description": "Follow and share IDCTE's work on social media, write to your local representatives, and help bring international attention to the situation facing Eelam Tamils."
+      "description": "Share our work, write to your elected representatives, and ask them where they stand on the Tamil genocide. Politicians act on what their voters raise, so raise it."
     },
     {
       "title": "Partner With Us",
-      "description": "We work with diaspora organizations, human rights groups, and civil society partners. If your organization shares our goals, get in touch about collaborating."
+      "description": "We work alongside diaspora organizations, human rights groups and civil society partners. If your organization stands for justice and accountability, let's build pressure together."
     },
     {
       "title": "Support Our Work",
-      "description": "IDCTE is a volunteer-driven organization sustained by the diaspora community. Contact us to learn about current ways to support our advocacy and research work."
+      "description": "We are volunteer-run and funded entirely by the diaspora. A monthly or one-time donation keeps our advocacy in Geneva and Brussels going.",
+      "href": "/donate"
     }
   ]
 }

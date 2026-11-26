@@ -1,13 +1,13 @@
 ---
-heroEyebrow: Human Rights Advocacy Organization · Copenhagen, Denmark
-heroTitle: Justice, Accountability, and Self-Determination for Eelam Tamils
+heroEyebrow: Youth-led human rights advocacy · Copenhagen, Denmark
+heroTitle: Justice for the Tamil Genocide. Self-Determination for Eelam Tamils.
 heroSubtitle: IDCTE is a human rights organization advocating internationally
   for the rights, self-determination and justice of Eelam Tamils, and for
   recognition of the Tamil genocide.
 heroImage: /images/photos/Brussels-hero.jpg
 stat1Value: "2021"
-stat1Label: Founded in Europe by Eelam Tamil youths
+stat1Label: Founded by Eelam Tamil youth in Europe
 stat2Value: 130+
 stat2Label: Advocacy meetings conducted
 ---
-IDCTE was founded by a group of new-generation Eelam Tamil youths from Nordic and other European countries who were frustrated by the delayed justice for the people of Tamil Eelam. We campaign for accountability and justice for the Tamil genocide, calling for international recognition for Tamil Genocide and for those responsible to be held accountable through independent international mechanisms. Alongside this, we advocate for a political solution that addresses the Tamil nation's political aspirations, based on our right to self-determination in Tamil Eelam.
+IDCTE was founded in 2021 by young Eelam Tamils across Europe who refused to keep waiting. We press governments and international institutions for three things: recognition of the Tamil genocide, accountability for those responsible through independent international mechanisms, and a political solution built on the Tamil nation's right to self-determination in Tamil Eelam.

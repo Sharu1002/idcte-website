@@ -6,10 +6,9 @@ heroImage: /images/photos/IDCTE-speaking-conference.jpg
 regTitle: Registration
 regBody: International Diplomatic Council of Tamil Eelam (IDCTE) CVR - 42651664
   Østerbrogade 226, st. 1., 2100 København Ø, Denmark
-whyWeExist: We exist because justice for the Tamil people has been delayed for
-  too long. IDCTE was founded by young Eelam Tamils across the Nordic countries
-  who grew up watching the international community look away — and decided to
-  stop waiting for someone else to act.
+whyWeExist: Justice for the Tamil people has been delayed for more than seven
+  decades. IDCTE was founded by young Eelam Tamils across the European countries
+  who grew up watching the international community look away.
 ---
 ## Who We Are
 
@@ -17,12 +16,30 @@ International Diplomatic Council of Tamil Eelam, also known as IDCTE, is a human
 
 ## What We Do
 
-IDCTE is a dedicated human rights organization that continuously and tirelessly advocates for the rights, self-determination and justice of the Eelam Tamils in Tamil Eelam. We firmly believe that every individual deserves to live a life free from oppression and discrimination.
+**We advocate.** We brief Members of Parliament, MEPs, foreign ministries and international bodies on the situation facing Eelam Tamils, and we press them to act.
 
-## Our Primary Goal
+**We document.** We gather evidence on land grabs, Sinhalization, militarization and the destruction of Tamil memorial sites, and turn it into briefings policymakers can use.
 
-Eelam Tamils have faced genocide in Tamil Eelam at the hands of the occupying Sri Lankan state since 1948. It reached its peak in 2009 — tens of thousands killed in the final days of the armed conflict, and at least 146,679 people still unaccounted for. What we face today is structural: a sustained effort to erase Tamil identity, culture, and literature.
+**We educate.** We mobilize young Eelam Tamils to become more aware of our struggle, and we reach non-Tamil audiences who have never heard our history.
 
-Our primary objective is to ensure this is neither forgotten nor denied. We document what was done and what is still being done, and we carry that evidence to the institutions with the power to act — so that recognition of the genocide is followed by accountability, and accountability by consequence.
+## Our Mission
 
-Awareness alone is not the goal. We advocate for a political solution that answers the aspirations of the Tamil nation, grounded in our right to self-determination in Tamil Eelam.
+IDCTE builds international pressure for justice for Eelam Tamils. We advocate for accountability and justice for Eelam Tamils by engaging with parliaments, governments and international institutions like the UN and EU. We also train and mobilize the next generation of Eelam Tamil youth to carry our cause forward.
+
+## Our Vision
+
+A future in which the Tamil genocide is recognized, those responsible are held to account, and Eelam Tamils freely determine their own political future in Tamil Eelam.
+
+## What We Demand
+
+1. **Recognition:** international recognition of the Tamil genocide.
+2. **Accountability:** those responsible held to account through independent international mechanisms.
+3. **Self-determination:** a political solution that meets the aspirations of the Tamil nation, grounded in our right to self-determination in Tamil Eelam.
+
+## What We Are Fighting For
+
+Since 1948, Eelam Tamils have faced genocide at the hands of the Sri Lankan state. It reached its peak in 2009, when tens of thousands were killed in the final days of the war and at least 146,679 people were left unaccounted for. It continues today as structural genocide: a sustained effort to erase Tamil land, identity, culture and memory.
+
+We document what was done and what is still being done, and we carry that evidence to the institutions with the power to act, so that recognition is followed by accountability and accountability by consequence.
+
+Awareness is where our work starts, not where it ends. Our goal is a political solution that answers the aspirations of the Tamil nation, grounded in our right to self-determination in Tamil Eelam.

@@ -76,6 +76,7 @@ export function getAdvocacyReach(locale: Locale = "en"): AdvocacyReach[] {
 export type WaysToHelp = {
   title: string;
   description: string;
+  href?: string;
 };
 
 export function getWaysToHelp(locale: Locale = "en"): WaysToHelp[] {

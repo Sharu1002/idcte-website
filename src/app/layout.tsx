@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | IDCTE",
   },
   description:
-    "IDCTE advocates for the rights, self-determination, and justice of Eelam Tamils through international advocacy and knowledge mobilization.",
+    "IDCTE is a youth-led human rights organization demanding recognition of the Tamil genocide, international accountability, and self-determination for Eelam Tamils.",
 };
 
 export default async function RootLayout({
